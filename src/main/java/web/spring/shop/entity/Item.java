@@ -24,6 +24,14 @@ public class Item {
     @Column(name = "status")
     private String status;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User seller;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subtype_id")
+    private Subtype subtype;
+
     public Item() {
     }
 
@@ -44,6 +52,14 @@ public class Item {
         this.status = status;
     }
 
+    public User getSeller() {
+        return seller;
+    }
+
+    public void setSeller(User seller) {
+        this.seller = seller;
+    }
+
     public int getId() {
         return id;
     }
@@ -57,12 +73,20 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return id == item.id && Double.compare(item.unitPrice, unitPrice) == 0 && Objects.equals(name, item.name) && Objects.equals(image, item.image) && Objects.equals(details, item.details) && Objects.equals(status, item.status);
+        return id == item.id && Double.compare(item.unitPrice, unitPrice) == 0 && Objects.equals(name, item.name) && Objects.equals(image, item.image) && Objects.equals(details, item.details) && Objects.equals(status, item.status) && Objects.equals(seller, item.seller) && Objects.equals(subtype, item.subtype);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, unitPrice, image, details, status);
+        return Objects.hash(id, name, unitPrice, image, details, status, seller, subtype);
+    }
+
+    public Subtype getSubtype() {
+        return subtype;
+    }
+
+    public void setSubtype(Subtype subtype) {
+        this.subtype = subtype;
     }
 
     public String getName() {
