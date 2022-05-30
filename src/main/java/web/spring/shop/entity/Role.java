@@ -1,15 +1,13 @@
 package web.spring.shop.entity;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "roles")
-public class Role {
-    @Id
-    @Column(name = "role")
-    private String role;
+import org.springframework.security.core.GrantedAuthority;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "email")
-    private User user;
+public enum Role implements GrantedAuthority {
+    USER, ADMIN;
+
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }

@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 @WebServlet
-@RequestMapping("/my")
-public class MyServlet extends HttpServlet {
+@RequestMapping("/shop_info")
+public class AdminServlet extends HttpServlet {
     
 }
