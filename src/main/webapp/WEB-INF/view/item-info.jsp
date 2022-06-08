@@ -1,42 +1,26 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8">
+    <title>Информация о товаре</title>
+</head>
 <body>
+<jsp:include page="header.jsp" />
+<h2>${item.name}</h2>
+<p><img src="${item.image}" alt="${item.name}" width="132" height="174" class="leftimg">
+    <c:out value="${item.details}"/><c:out value="${item.unitPrice}"/></p>
+<c:url var="Basket" value="/seedlings.by/addBasketItem">
+    <c:param name="itemId" value="${item}"/>
+</c:url>
 
-<br>
-<form:form action="saveItem" modelAttribute="item">
-    <h2>
-        <c:if test="${item != null}">
-            Edit User
-        </c:if>
-        <c:if test="${item == null}">
-            Add New User
-        </c:if>
-    </h2>
-    <c:if test="${item == null}">
-    <form:hidden path="id"/>
-    </c:if>
-    <c:if test="${item != null}">
-        <form: path="id" value="<c:out value="${itemId}"/>" />
-    </c:if>
+<c:url var="Back" value="/seedlings.by/type">
+    <c:param name="typeId" value="${item.subtype.type.id}"/>
+</c:url>
 
-    Image <br><form:input path="image" placeholder="Path to image"/>
-    <br><br>
-    Name <br><form:input path="name" />
-    <br><br>
-    Price <br><form:input path="unitPrice"/>
-    <br><br>
-    Quantity <br><form:input path="status"/>
-    <br><br>
-    Details <br><form:textarea cols="50" rows="30" path="details"/>
-    <br><br>
-    <input type="submit" value="Ok">
-
-</form:form>
-
+<div style="text-align: center"><a onclick="window.location.href = '${Basket}'">В корзину</a></div>
+<a onclick="window.location.href = '${Back}'">Назад к выбору товара</a>
 </body>
 </html>
