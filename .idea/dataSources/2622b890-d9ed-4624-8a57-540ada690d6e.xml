@@ -1388,163 +1388,168 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <index id="372" parent="295" name="id_UNIQUE">
+    <column id="372" parent="295" name="client_id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="373" parent="295" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="373" parent="295" name="PRIMARY">
+    <key id="374" parent="295" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="374" parent="295" name="id_UNIQUE">
+    <key id="375" parent="295" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>id_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="375" parent="296" name="id">
+    <column id="376" parent="296" name="id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="376" parent="296" name="address">
+    <column id="377" parent="296" name="address">
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="377" parent="296" name="working_hours">
+    <column id="378" parent="296" name="working_hours">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <index id="378" parent="296" name="id_UNIQUE">
+    <index id="379" parent="296" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="379" parent="296" name="PRIMARY">
+    <key id="380" parent="296" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="380" parent="296" name="id_UNIQUE">
+    <key id="381" parent="296" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>id_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="381" parent="297" name="id">
+    <column id="382" parent="297" name="id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="382" parent="297" name="username">
+    <column id="383" parent="297" name="username">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </column>
-    <column id="383" parent="297" name="text">
+    <column id="384" parent="297" name="text">
       <DataType>varchar(400)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </column>
-    <column id="384" parent="297" name="date">
+    <column id="385" parent="297" name="date">
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="385" parent="297" name="id_UNIQUE">
+    <index id="386" parent="297" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="386" parent="297" name="PRIMARY">
+    <key id="387" parent="297" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="387" parent="297" name="id_UNIQUE">
+    <key id="388" parent="297" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>id_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="388" parent="298" name="id">
+    <column id="389" parent="298" name="id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="389" parent="298" name="name">
+    <column id="390" parent="298" name="name">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="390" parent="298" name="title">
+    <column id="391" parent="298" name="title">
       <DataType>tinytext|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="391" parent="298" name="type_id">
+    <column id="392" parent="298" name="type_id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="392" parent="298" name="details">
+    <column id="393" parent="298" name="details">
       <DataType>text|0s</DataType>
       <Position>5</Position>
     </column>
-    <foreign-key id="393" parent="298" name="type_id">
+    <foreign-key id="394" parent="298" name="type_id">
       <ColNames>type_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>types</RefTableName>
     </foreign-key>
-    <index id="394" parent="298" name="id_UNIQUE">
+    <index id="395" parent="298" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="395" parent="298" name="type_idx">
+    <index id="396" parent="298" name="type_idx">
       <ColNames>type_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="396" parent="298" name="PRIMARY">
+    <key id="397" parent="298" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="397" parent="298" name="id_UNIQUE">
+    <key id="398" parent="298" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>id_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="398" parent="299" name="id">
+    <column id="399" parent="299" name="id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="399" parent="299" name="name">
+    <column id="400" parent="299" name="name">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="400" parent="299" name="details">
+    <column id="401" parent="299" name="details">
       <DataType>tinytext|0s</DataType>
       <Position>3</Position>
     </column>
-    <index id="401" parent="299" name="id_UNIQUE">
+    <index id="402" parent="299" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="402" parent="299" name="PRIMARY">
+    <key id="403" parent="299" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="403" parent="299" name="id_UNIQUE">
+    <key id="404" parent="299" name="id_UNIQUE">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>id_UNIQUE</UnderlyingIndexName>
     </key>

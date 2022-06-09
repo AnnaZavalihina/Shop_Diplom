@@ -58,6 +58,7 @@ public class ShopServiceImp implements ShopService{
     }
 
     @Override
+    @Transactional
     public Answer getAnswerById(int id) {
         return shopDao.getAnswerById(id);
     }

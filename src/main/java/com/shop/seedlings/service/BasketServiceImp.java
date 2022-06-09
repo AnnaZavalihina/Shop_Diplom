@@ -68,6 +68,7 @@ public class BasketServiceImp implements BasketService{
     }
 
     @Override
+    @Transactional
     public void deleteBasketItem(int id) {
         basketDao.deleteBasketItem(id);
     }

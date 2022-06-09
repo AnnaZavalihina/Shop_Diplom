@@ -59,12 +59,17 @@
     </th>
 
     <th>
-<%--        Ваше ФИО <form:input path="name"/>--%>
-<%--        <br><br>--%>
-<%--        E-mail <form:input path="email"/>--%>
-<%--        <br><br>--%>
-<%--        Номер телефона <form:input path="telNumber"  placeholder="В виде ХХ ХХХХХХХ"/>--%>
-<%--        <br><br>--%>
+        Индекс <form:input path="index"/>
+        <br><br>
+        Город <form:input path="city"/>
+        <br><br>
+        Улица <form:input path="street" />
+        <br><br>
+        Номер дома <form:input path="building"/>
+        <br>
+        корпус <form:input path="housing"/>,
+        квартира <form:input path="apartment"/>
+
     </th>
     </tr>
 </table>

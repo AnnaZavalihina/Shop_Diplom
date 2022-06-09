@@ -85,11 +85,13 @@ public class BasketDaoImp implements BasketDao{
     }
 
     @Override
-    public void deleteBasketItem(int id) {
+    public void deleteBasketItem(int itemId) {
         Session session = sessionFactory.getCurrentSession();
-        BasketItem item = session.load(BasketItem.class, id);
-        if (item != null){
-            session.delete(item);
-        }
+        int result = session.createQuery("delete BasketItem where id = :id").
+                setString("id", String.valueOf(itemId)).executeUpdate();
+//        BasketItem item = session.load(BasketItem.class, id);
+//        if (item != null){
+//            session.delete(item);
+//        }
     }
 }

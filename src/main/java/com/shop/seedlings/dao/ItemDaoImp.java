@@ -68,7 +68,7 @@ public class ItemDaoImp implements ItemDao{
     @Override
     public List<Item> getAllDiscountItems() {
         Session session = sessionFactory.getCurrentSession();
-        Query<Item> query = session.createQuery("FROM Item I WHERE I.status = 'true'", Item.class);
+        Query<Item> query = session.createQuery("FROM Item I WHERE I.discount = 'true'", Item.class);
         List<Item> allDiscountItems = query.getResultList();
         return allDiscountItems;
     }

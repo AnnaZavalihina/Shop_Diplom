@@ -16,11 +16,41 @@ public class Order {
     private Date date;
     @Column(name = "price")
     private double price;
+    @Column(name = "client_id")
+    private int clientId;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     private List<OrderItem> orderItems;
 
     public Order() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return id == order.id && Double.compare(order.price, price) == 0 && clientId == order.clientId && Objects.equals(date, order.date) && Objects.equals(orderItems, order.orderItems);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, date, price, clientId, orderItems);
+    }
+
+    public Order(Date date, double price, int clientId, List<OrderItem> orderItems) {
+        this.date = date;
+        this.price = price;
+        this.clientId = clientId;
+        this.orderItems = orderItems;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     public Order(Date date, double price, List<OrderItem> orderItems) {
@@ -61,16 +91,4 @@ public class Order {
         this.orderItems = orderItems;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        return id == order.id && Double.compare(order.price, price) == 0 && Objects.equals(date, order.date) && Objects.equals(orderItems, order.orderItems);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, date, price, orderItems);
-    }
 }
