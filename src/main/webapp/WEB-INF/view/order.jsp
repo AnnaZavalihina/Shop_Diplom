@@ -25,7 +25,7 @@
     <c:forEach var="item" items="${basketItems}">
 
         <tr>
-            <td>${item.item.name} руб.</td>
+            <td>${item.item.name}</td>
             <td>${item.price} руб.</td>
         </tr>
     </c:forEach>
@@ -36,6 +36,7 @@
 </table>
 <c:url var="Back" value="/seedlings.by/catalog">
 </c:url>
+<br><br>
 <div><a onclick="window.location.href = '${Back}'">Отмена</a></div>
 <br>
 
@@ -48,13 +49,13 @@
 
     <tr>
     <th>
-                    <form:hidden path="id" value="${hostId}"/>
+            <form:hidden path="id" value="${hostId}"/>
 
             Ваше ФИО <form:input path="name"/>
             <br><br>
             E-mail <form:input path="email"/>
             <br><br>
-            Номер телефона <form:input path="telNumber"  placeholder="В виде ХХ ХХХХХХХ"/>
+        Номер телефона <form:input path="telNumber" />
             <br><br>
     </th>
 
@@ -73,7 +74,7 @@
     </th>
     </tr>
 </table>
-<input type="submit" value="Ok">
+<input type="submit" value="Заказать">
 
 </form:form>
 </body>

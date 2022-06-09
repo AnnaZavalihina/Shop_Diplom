@@ -15,5 +15,6 @@ public interface ShopDao {
     void deletePickupAddress(int id);
     List<PickupAddress> getAllPickupAddresses();
     void saveQuestion(Question question);
+
     Answer getAnswerById(int id);
 }

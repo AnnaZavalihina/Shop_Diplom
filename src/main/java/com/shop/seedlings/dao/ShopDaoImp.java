@@ -10,14 +10,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class ShopDaoImp implements ShopDao{
+public class ShopDaoImp implements ShopDao {
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
     public Info getInfo() {
         Session session = sessionFactory.getCurrentSession();
-        int id =1;
+        int id = 1;
         Info info = session.get(Info.class, id);
         return info;
     }
@@ -48,7 +48,7 @@ public class ShopDaoImp implements ShopDao{
     public void deletePickupAddress(int id) {
         Session session = sessionFactory.getCurrentSession();
         PickupAddress pickupAddress = session.load(PickupAddress.class, id);
-        if (pickupAddress != null){
+        if (pickupAddress != null) {
             session.delete(pickupAddress);
         }
     }

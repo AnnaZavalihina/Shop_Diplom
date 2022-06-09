@@ -30,19 +30,6 @@ public class Client {
     @Column(name = "apartment")
     private int apartment;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return id == client.id && telNumber == client.telNumber && index == client.index && building == client.building && apartment == client.apartment && Objects.equals(name, client.name) && Objects.equals(email, client.email) && Objects.equals(city, client.city) && Objects.equals(street, client.street) && Objects.equals(housing, client.housing);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, email, telNumber, index, city, street, building, housing, apartment);
-    }
-
     public Client(String name, String email, int telNumber, int index, String city, String street, int building, String housing, int apartment) {
         this.name = name;
         this.email = email;
@@ -55,7 +42,33 @@ public class Client {
         this.apartment = apartment;
     }
 
+    public Client(int id, String name, String email, int telNumber, int index, String city, String street, int building, String housing, int apartment) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.telNumber = telNumber;
+        this.index = index;
+        this.city = city;
+        this.street = street;
+        this.building = building;
+        this.housing = housing;
+        this.apartment = apartment;
+    }
+
     public Client() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return id == client.id && telNumber == client.telNumber && index == client.index && building == client.building && apartment == client.apartment && Objects.equals(name, client.name) && Objects.equals(email, client.email) && Objects.equals(city, client.city) && Objects.equals(street, client.street) && Objects.equals(housing, client.housing);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, email, telNumber, index, city, street, building, housing, apartment);
     }
 
     public int getId() {

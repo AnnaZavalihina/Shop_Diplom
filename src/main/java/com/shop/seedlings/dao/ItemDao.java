@@ -14,6 +14,7 @@ public interface ItemDao {
     void saveItem(Item item);
     void deleteItem(int id);
     List<Item> getAllDiscountItems();
+
     List<Subtype> getSubtypes();
     List<Type> getAllTypes();
     List<Subtype> getAllSubtypes(int typeId);

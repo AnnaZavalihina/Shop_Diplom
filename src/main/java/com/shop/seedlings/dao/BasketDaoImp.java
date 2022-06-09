@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class BasketDaoImp implements BasketDao{
+public class BasketDaoImp implements BasketDao {
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -29,9 +29,20 @@ public class BasketDaoImp implements BasketDao{
     }
 
     @Override
+    public void saveClient(Client client) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(client);
+    }
+
+    @Override
+    public boolean checkClient(Client client) {
+        return false;
+    }
+
+    @Override
     public List<BasketItem> getAllBasketItems(int basketId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = String.format("from BasketItem B where B.basket=%1$d",basketId);
+        String hql = String.format("from BasketItem B where B.basket=%1$d", basketId);
         Query<BasketItem> query = session.createQuery(hql, BasketItem.class);
         List<BasketItem> basketItems = query.getResultList();
         return basketItems;
@@ -39,9 +50,9 @@ public class BasketDaoImp implements BasketDao{
 
     @Override
     public BasketItem itemToBasketItem(Item item, int basketId) {
-        double price= item.getUnitPrice();
+        double price = item.getUnitPrice();
         Basket basket = getBasketById(basketId);
-        BasketItem basketItem=new BasketItem(1,price,basket,item);
+        BasketItem basketItem = new BasketItem(1, price, basket, item);
         return basketItem;
     }
 
@@ -56,18 +67,6 @@ public class BasketDaoImp implements BasketDao{
         Session session = sessionFactory.getCurrentSession();
         BasketItem item = session.get(BasketItem.class, id);
         return item;
-    }
-
-    @Override
-    public int getBasketByIp(String ip) {
-        Session session = sessionFactory.getCurrentSession();
-        String hql = String.format("from Basket B where B.ip=\'%1$s\'",ip);
-        Query<Basket> query = session.createQuery(hql, Basket.class);
-        List<Basket> baskets = query.getResultList();
-        Basket basket;int basketId;
-        if(baskets!=null){basket = baskets.get(0);basketId=basket.getId();}
-        else{basketId=0;}
-        return basketId;
     }
 
     @Override
@@ -89,9 +88,28 @@ public class BasketDaoImp implements BasketDao{
         Session session = sessionFactory.getCurrentSession();
         int result = session.createQuery("delete BasketItem where id = :id").
                 setString("id", String.valueOf(itemId)).executeUpdate();
-//        BasketItem item = session.load(BasketItem.class, id);
-//        if (item != null){
-//            session.delete(item);
-//        }
+    }
+
+    @Override
+    public void dropAllItems(int basketId) {
+        Session session = sessionFactory.getCurrentSession();
+        int result = session.createQuery("delete BasketItem where basket = :id").
+                setString("id", String.valueOf(basketId)).executeUpdate();
+    }
+
+    @Override
+    public Order getOrderByHostId(int hostId) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = String.format("from Order O where O.clientId=%1$d", hostId);
+        Query query = session.createQuery(hql, Order.class);
+        List<Order> orderList = query.getResultList();
+        Order order= orderList.get(0);
+        return order;
+    }
+
+    @Override
+    public void saveOrder(Order order) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(order);
     }
 }

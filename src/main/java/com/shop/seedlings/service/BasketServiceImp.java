@@ -33,6 +33,18 @@ public class BasketServiceImp implements BasketService{
 
     @Override
     @Transactional
+    public void saveClient(Client client) {
+        basketDao.saveClient(client);
+    }
+
+    @Override
+    @Transactional
+    public boolean checkClient(Client client) {
+        return basketDao.checkClient(client);
+    }
+
+    @Override
+    @Transactional
     public void saveBasketItem(BasketItem basketItem) {
         basketDao.saveBasketItem(basketItem);
     }
@@ -49,11 +61,6 @@ public class BasketServiceImp implements BasketService{
         return basketDao.itemToBasketItem(item,basketId);
     }
 
-    @Override
-    @Transactional
-    public int getBasketByIp(String ip) {
-        return basketDao.getBasketByIp(ip);
-    }
 
     @Override
     @Transactional
@@ -71,5 +78,21 @@ public class BasketServiceImp implements BasketService{
     @Transactional
     public void deleteBasketItem(int id) {
         basketDao.deleteBasketItem(id);
+    }
+
+    @Override
+    @Transactional
+    public void dropAllItems(int basketId) {
+        basketDao.dropAllItems(basketId);
+    }
+
+    @Override
+    public Order getOrderByHostId(int hostId) {
+        return basketDao.getOrderByHostId(hostId);
+    }
+
+    @Override
+    public void saveOrder(Order order) {
+basketDao.saveOrder(order);
     }
 }

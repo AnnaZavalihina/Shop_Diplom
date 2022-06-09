@@ -13,7 +13,7 @@ import com.shop.seedlings.domain.entity.Item;
 import java.util.*;
 
 @Repository
-public class ItemDaoImp implements ItemDao{
+public class ItemDaoImp implements ItemDao {
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -35,7 +35,7 @@ public class ItemDaoImp implements ItemDao{
     @Override
     public List<Item> getAllSubtypeItems(int subtypeId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql=String.format("FROM Item as I WHERE I.subtype = %1$d ORDER BY I.name ASC", subtypeId);
+        String hql = String.format("FROM Item as I WHERE I.subtype = %1$d ORDER BY I.name ASC", subtypeId);
         Query<Item> query = session.createQuery(hql, Item.class);
         List<Item> allSubtypeItems = query.getResultList();
         return allSubtypeItems;
@@ -44,7 +44,7 @@ public class ItemDaoImp implements ItemDao{
     @Override
     public List<Item> getAllTypeItems(int typeId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql=String.format("FROM Item as I WHERE I.subtype.type=%1$d ORDER BY I.name ASC", typeId);
+        String hql = String.format("FROM Item as I WHERE I.subtype.type=%1$d ORDER BY I.name ASC", typeId);
         Query<Item> query = session.createQuery(hql, Item.class);
         List<Item> allTypeItems = query.getResultList();
         return allTypeItems;
@@ -60,7 +60,7 @@ public class ItemDaoImp implements ItemDao{
     public void deleteItem(int id) {
         Session session = sessionFactory.getCurrentSession();
         Item item = session.load(Item.class, id);
-        if (item != null){
+        if (item != null) {
             session.delete(item);
         }
     }
@@ -92,7 +92,7 @@ public class ItemDaoImp implements ItemDao{
     @Override
     public List<Subtype> getAllSubtypes(int typeId) {
         Session session = sessionFactory.getCurrentSession();
-        String hql=String.format("FROM Subtype as S WHERE S.type=%1$d ORDER BY S.name ASC", typeId);
+        String hql = String.format("FROM Subtype as S WHERE S.type=%1$d ORDER BY S.name ASC", typeId);
         Query<Subtype> query = session.createQuery(hql, Subtype.class);
         List<Subtype> allSubtypes = query.getResultList();
         return allSubtypes;
