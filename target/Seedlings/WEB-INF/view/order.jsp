@@ -55,7 +55,7 @@
             <br><br>
             E-mail <form:input path="email"/>
             <br><br>
-        Номер телефона <form:label path="name">name</form:label><form:input path="telNumber" />
+        Номер телефона <form:input path="telNumber" />
             <br><br>
     </th>
 

@@ -112,4 +112,10 @@ public class BasketDaoImp implements BasketDao {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(order);
     }
+
+    @Override
+    public void saveOrderItem(OrderItem orderItem) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(orderItem);
+    }
 }

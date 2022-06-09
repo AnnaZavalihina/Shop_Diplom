@@ -30,4 +30,6 @@ public interface BasketDao {
 
     Order getOrderByHostId(int hostId);
     void saveOrder(Order order);
+
+    void saveOrderItem(OrderItem orderItem);
 }

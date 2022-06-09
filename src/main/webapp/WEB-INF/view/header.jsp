@@ -14,40 +14,25 @@
 <body>
 
 <!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
+<table style="font-size: medium;background-color: aquamarine">
+            <tr class="navbar-nav">
+                <td class="nav-item">
                     <a class="nav-link" href="/seedlings.by/catalog">Каталог <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
+                </td>
+                <td class="nav-item">
                     <a class="nav-link" href="/seedlings.by/delivery">Доставка</a>
-                </li>
-                <li class="nav-item">
+                </td>
+                <td class="nav-item">
                     <a class="nav-link" href="/seedlings.by/about">О нас</a>
-                </li>
-                <li class="nav-item">
+                </td>
+                <td class="nav-item">
                     <a class="nav-link" href="/seedlings.by/questions">Вопрос-ответ</a>
-                </li>
-                <li class="nav-item">
+                </td>
+                <td class="nav-item">
                     <a class="nav-link" href="/seedlings.by/discount">Акции</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/seedlings.by/basket">Корзина</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-</nav>
+                </td>
+            </tr>
+</table>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"

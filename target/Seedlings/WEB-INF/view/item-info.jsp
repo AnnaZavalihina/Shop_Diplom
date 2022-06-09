@@ -10,7 +10,8 @@
 <body>
 <jsp:include page="header.jsp" />
 <h2>${item.name}</h2>
-<p><img src="" alt="${item.name}" width="132" height="174" class="leftimg">
+
+<p><img src="${item.image}" alt="${item.name}" width="132" height="174" class="leftimg">
     <c:out value="${item.details}"/><c:out value="${item.unitPrice}"/></p>
 <c:url var="Basket" value="/seedlings.by/addBasketItem">
     <c:param name="itemId" value="${item.id}"/>

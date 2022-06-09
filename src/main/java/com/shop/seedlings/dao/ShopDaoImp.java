@@ -23,37 +23,6 @@ public class ShopDaoImp implements ShopDao {
     }
 
     @Override
-    public void editInfo(Info info) {
-        Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(info);
-    }
-
-
-    @Override
-    public List<Question> getAllQuestions() {
-        Session session = sessionFactory.getCurrentSession();
-        Query<Question> query = session.createQuery("from Question Q ORDER BY Q.id DESC", Question.class);
-        List<Question> allQuestions = query.getResultList();
-        return allQuestions;
-    }
-
-
-    @Override
-    public void savePickupAddress(PickupAddress address) {
-        Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(address);
-    }
-
-    @Override
-    public void deletePickupAddress(int id) {
-        Session session = sessionFactory.getCurrentSession();
-        PickupAddress pickupAddress = session.load(PickupAddress.class, id);
-        if (pickupAddress != null) {
-            session.delete(pickupAddress);
-        }
-    }
-
-    @Override
     public List<PickupAddress> getAllPickupAddresses() {
         Session session = sessionFactory.getCurrentSession();
         Query<PickupAddress> query = session.createQuery("from PickupAddress", PickupAddress.class);
@@ -61,16 +30,4 @@ public class ShopDaoImp implements ShopDao {
         return allPickupAddresses;
     }
 
-    @Override
-    public void saveQuestion(Question question) {
-        Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(question);
-    }
-
-    @Override
-    public Answer getAnswerById(int id) {
-        Session session = sessionFactory.getCurrentSession();
-        Answer answer = session.get(Answer.class, id);
-        return answer;
-    }
 }

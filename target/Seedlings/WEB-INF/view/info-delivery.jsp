@@ -117,7 +117,6 @@
                     <li><span style="font-size: medium;">не высылать посадочный материал, если такового не окажется на складе</span></li>
                 </ul>
             </div>
-
-<%--<jsp:include page="footer.jsp" />--%>
+        </div></b></div></div>
 </body>
 </html>

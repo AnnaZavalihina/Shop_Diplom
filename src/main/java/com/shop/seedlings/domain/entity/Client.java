@@ -1,6 +1,9 @@
 package com.shop.seedlings.domain.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +15,7 @@ public class Client {
     private int id;
     @Column(name = "name")
     private String name;
+
     @Column(name = "email")
     private String email;
     @Column(name = "tel_number")

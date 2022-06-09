@@ -82,30 +82,28 @@ public class BasketController {
     @RequestMapping("/seedlings.by/order")
     public String doOrder(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("client") Client client) {
 
-        basketService.saveClient(client);
+//        basketService.checkClient(client);
+//        basketService.saveClient(client);
 
         Cookie[] c = request.getCookies();
         int hostId = Integer.parseInt(c[0].getValue());
         double price = basketService.getBasketById(hostId).getPrice();
 
-//        Order order = new Order(new java.sql.Date(System.currentTimeMillis()),price,hostId,null);
-//        basketService.saveOrder(order);
-//        Order orderByHostId = basketService.getOrderByHostId(hostId);
-//
-//        List<BasketItem> basketItems = basketService.getAllBasketItems(hostId);
-//        List<OrderItem> orderItemList=null;
-//        for (BasketItem item:basketItems) {
-//            OrderItem oi=new OrderItem();
-//            oi.setPrice(item.getPrice());
-//            oi.setItem(item.getItem());
-//            oi.setQuantity(item.getQuantity());
-//            oi.setOrder(orderByHostId);
-//            orderItemList.add(oi);
-//        }
-//        orderByHostId.setOrderItems(orderItemList);
-//        basketService.saveOrder(orderByHostId);
+        Order order = new Order(new java.sql.Date(System.currentTimeMillis()),price,hostId,null);
+        basketService.saveOrder(order);
+        Order orderByHostId = basketService.getOrderByHostId(hostId);
 
+        List<BasketItem> basketItems = basketService.getAllBasketItems(hostId);
+        List<OrderItem> orderItemList = null;
+        for (BasketItem item:basketItems) {
+            OrderItem oi=new OrderItem();
+            oi.setPrice(item.getPrice());
+            oi.setItem(item.getItem());
+            oi.setQuantity(item.getQuantity());
+            oi.setOrder(orderByHostId);
+            basketService.saveOrderItem(oi);
+        }
         basketService.dropAllItems(hostId);
-        return "redirect:/seedlings.by/basket";
+        return "redirect:/seedlings.by/catalog";
     }
 }

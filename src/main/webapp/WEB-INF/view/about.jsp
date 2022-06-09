@@ -5,91 +5,90 @@
   Time: 22:01
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html;charset=cp1251"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>О компании Seedlings.by</title>
+    <title>Рћ РєРѕРјРїР°РЅРёРё Seedlings.by</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
 
-<h1 style="text-align: center;">Интернет-магазин семена и саженцы<div style="font-weight: bold">Seedlings.by</div></h1>
-<div style="text-align: center;font-family: verdana, geneva;color: #003300;font-size: x-large;">Лучший посадочный материал в любой уголок страны!</div>
-<div style="font-family: verdana, geneva;font-size: medium;">Мы реализуем семена и саженцы сортовых растений по Республике Беларусь почтой. На нашем сайте Вы можете найти и заказать в любой населенный пункт страны - семена цветов и овощей, луковицы и корневища цветов, саженцы кустарников и плодовых растений из ведущих питомников Республики Беларусь, Польши, Бельгии, Нидерландов.</div>
-<h1 style="text-align: center;">Наши преимущества</h1>
+<h1 style="text-align: center;">РРЅС‚РµСЂРЅРµС‚-РјР°РіР°Р·РёРЅ СЃРµРјРµРЅР° Рё СЃР°Р¶РµРЅС†С‹<div style="font-weight: bold">Seedlings.by</div></h1>
+<div style="text-align: center;font-family: verdana, geneva;color: #003300;font-size: x-large;">Р›СѓС‡С€РёР№ РїРѕСЃР°РґРѕС‡РЅС‹Р№ РјР°С‚РµСЂРёР°Р» РІ Р»СЋР±РѕР№ СѓРіРѕР»РѕРє СЃС‚СЂР°РЅС‹!</div>
+<div style="font-family: verdana, geneva;font-size: medium;">РњС‹ СЂРµР°Р»РёР·СѓРµРј СЃРµРјРµРЅР° Рё СЃР°Р¶РµРЅС†С‹ СЃРѕСЂС‚РѕРІС‹С… СЂР°СЃС‚РµРЅРёР№ РїРѕ Р РµСЃРїСѓР±Р»РёРєРµ Р‘РµР»Р°СЂСѓСЃСЊ РїРѕС‡С‚РѕР№. РќР° РЅР°С€РµРј СЃР°Р№С‚Рµ Р’С‹ РјРѕР¶РµС‚Рµ РЅР°Р№С‚Рё Рё Р·Р°РєР°Р·Р°С‚СЊ РІ Р»СЋР±РѕР№ РЅР°СЃРµР»РµРЅРЅС‹Р№ РїСѓРЅРєС‚ СЃС‚СЂР°РЅС‹ - СЃРµРјРµРЅР° С†РІРµС‚РѕРІ Рё РѕРІРѕС‰РµР№, Р»СѓРєРѕРІРёС†С‹ Рё РєРѕСЂРЅРµРІРёС‰Р° С†РІРµС‚РѕРІ, СЃР°Р¶РµРЅС†С‹ РєСѓСЃС‚Р°СЂРЅРёРєРѕРІ Рё РїР»РѕРґРѕРІС‹С… СЂР°СЃС‚РµРЅРёР№ РёР· РІРµРґСѓС‰РёС… РїРёС‚РѕРјРЅРёРєРѕРІ Р РµСЃРїСѓР±Р»РёРєРё Р‘РµР»Р°СЂСѓСЃСЊ, РџРѕР»СЊС€Рё, Р‘РµР»СЊРіРёРё, РќРёРґРµСЂР»Р°РЅРґРѕРІ.</div>
+<h1 style="text-align: center;">РќР°С€Рё РїСЂРµРёРјСѓС‰РµСЃС‚РІР°</h1>
 <table style="width: 100%;">
     <tbody>
     <tr>
-        <td><img title="10 лет на рынке" src="http://semena.by/files/staty/10.jpg" alt="10 лет на рынке" width="100" height="99" /></td>
+        <td><img title="10 Р»РµС‚ РЅР° СЂС‹РЅРєРµ" src="http://semena.by/files/staty/10.jpg" alt="10 Р»РµС‚ РЅР° СЂС‹РЅРєРµ" width="100" height="99" /></td>
         <td>
-            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>10 лет на рынке</b></span></span></p>
-            <p  style="text-align: left;"><span style="color: #000000;">У нас большой опыт выращивания,&nbsp;<br />реализации и рассылки всех видов <br />посадочного материала<br />&nbsp;</span></p>
+            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>10 Р»РµС‚ РЅР° СЂС‹РЅРєРµ</b></span></span></p>
+            <p  style="text-align: left;"><span style="color: #000000;">РЈ РЅР°СЃ Р±РѕР»СЊС€РѕР№ РѕРїС‹С‚ РІС‹СЂР°С‰РёРІР°РЅРёСЏ,&nbsp;<br />СЂРµР°Р»РёР·Р°С†РёРё Рё СЂР°СЃСЃС‹Р»РєРё РІСЃРµС… РІРёРґРѕРІ <br />РїРѕСЃР°РґРѕС‡РЅРѕРіРѕ РјР°С‚РµСЂРёР°Р»Р°<br />&nbsp;</span></p>
         </td>
-        <td><span style="color: #000000;"><img title="материал высокого качеста" src="http://semena.by/files/staty/ikonki4.jpg" alt="материал высокого качеста" width="100" height="99" /></span></td>
+        <td><span style="color: #000000;"><img title="РјР°С‚РµСЂРёР°Р» РІС‹СЃРѕРєРѕРіРѕ РєР°С‡РµСЃС‚Р°" src="http://semena.by/files/staty/ikonki4.jpg" alt="РјР°С‚РµСЂРёР°Р» РІС‹СЃРѕРєРѕРіРѕ РєР°С‡РµСЃС‚Р°" width="100" height="99" /></span></td>
         <td>
-            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>Отборный посадочный материал</b></span></span></p>
-            <p style="text-align: left;"><span style="color: #000000;">Мы работаем только с лучшими,<br />проверенными годами, питомниками<br /> из Европы и РБ</span></p>
+            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>РћС‚Р±РѕСЂРЅС‹Р№ РїРѕСЃР°РґРѕС‡РЅС‹Р№ РјР°С‚РµСЂРёР°Р»</b></span></span></p>
+            <p style="text-align: left;"><span style="color: #000000;">РњС‹ СЂР°Р±РѕС‚Р°РµРј С‚РѕР»СЊРєРѕ СЃ Р»СѓС‡С€РёРјРё,<br />РїСЂРѕРІРµСЂРµРЅРЅС‹РјРё РіРѕРґР°РјРё, РїРёС‚РѕРјРЅРёРєР°РјРё<br /> РёР· Р•РІСЂРѕРїС‹ Рё Р Р‘</span></p>
         </td>
     </tr>
     <tr>
-        <td><span style="color: #000000;"><img title="большой выбор семян" src="http://semena.by/files/staty/ikonki2.jpg" alt="большой выбор семян" width="100" height="99" /></span></td>
+        <td><span style="color: #000000;"><img title="Р±РѕР»СЊС€РѕР№ РІС‹Р±РѕСЂ СЃРµРјСЏРЅ" src="http://semena.by/files/staty/ikonki2.jpg" alt="Р±РѕР»СЊС€РѕР№ РІС‹Р±РѕСЂ СЃРµРјСЏРЅ" width="100" height="99" /></span></td>
         <td>
-            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>Большой выбор семян</b></span></span></p>
-            <p style="text-align: left;"><span style="color: #000000;">Круглогодично в каталоге сайта<br />доступно для заказа около 1000&nbsp;<br />семян цветов и овощей<br />&nbsp;</span></p>
+            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>Р‘РѕР»СЊС€РѕР№ РІС‹Р±РѕСЂ СЃРµРјСЏРЅ</b></span></span></p>
+            <p style="text-align: left;"><span style="color: #000000;">РљСЂСѓРіР»РѕРіРѕРґРёС‡РЅРѕ РІ РєР°С‚Р°Р»РѕРіРµ СЃР°Р№С‚Р°<br />РґРѕСЃС‚СѓРїРЅРѕ РґР»СЏ Р·Р°РєР°Р·Р° РѕРєРѕР»Рѕ 1000&nbsp;<br />СЃРµРјСЏРЅ С†РІРµС‚РѕРІ Рё РѕРІРѕС‰РµР№<br />&nbsp;</span></p>
         </td>
-        <td><span style="color: #000000;"><img title="низкие цены" src="http://semena.by/files/staty/ikonki8.jpg" alt="низкие цены" width="100" height="99" /></span></td>
+        <td><span style="color: #000000;"><img title="РЅРёР·РєРёРµ С†РµРЅС‹" src="http://semena.by/files/staty/ikonki8.jpg" alt="РЅРёР·РєРёРµ С†РµРЅС‹" width="100" height="99" /></span></td>
         <td style="text-align: left;">
-            <p ><span style="font-weight: bold;"><span style="color: #000000;"><b>Низкие цены</b></span></span></p>
-            <span style="color: #000000;">Мы являемся первым импортером и производителем, что позволяет предлагать материал по выгодным ценам</span></td>
+            <p ><span style="font-weight: bold;"><span style="color: #000000;"><b>РќРёР·РєРёРµ С†РµРЅС‹</b></span></span></p>
+            <span style="color: #000000;">РњС‹ СЏРІР»СЏРµРјСЃСЏ РїРµСЂРІС‹Рј РёРјРїРѕСЂС‚РµСЂРѕРј Рё РїСЂРѕРёР·РІРѕРґРёС‚РµР»РµРј, С‡С‚Рѕ РїРѕР·РІРѕР»СЏРµС‚ РїСЂРµРґР»Р°РіР°С‚СЊ РјР°С‚РµСЂРёР°Р» РїРѕ РІС‹РіРѕРґРЅС‹Рј С†РµРЅР°Рј</span></td>
     </tr>
     <tr>
-        <td><span style="color: #000000;"><img title="ассортимент" src="http://semena.by/files/staty/ikonki3.jpg" alt="ассортимент" width="100" height="99" /></span></td>
+        <td><span style="color: #000000;"><img title="Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚" src="http://semena.by/files/staty/ikonki3.jpg" alt="Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚" width="100" height="99" /></span></td>
         <td style="text-align: left;">
-            <p><span style="font-weight: bold;"><span style="color: #000000;"><b>Расширенный ассортимент</b></span></span></p>
-            <span style="color: #000000;">Каждый новый сезон мы предлагаем новый расширенный&nbsp; ассортимент посадочного материала<br /><br /></span></td>
+            <p><span style="font-weight: bold;"><span style="color: #000000;"><b>Р Р°СЃС€РёСЂРµРЅРЅС‹Р№ Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚</b></span></span></p>
+            <span style="color: #000000;">РљР°Р¶РґС‹Р№ РЅРѕРІС‹Р№ СЃРµР·РѕРЅ РјС‹ РїСЂРµРґР»Р°РіР°РµРј РЅРѕРІС‹Р№ СЂР°СЃС€РёСЂРµРЅРЅС‹Р№&nbsp; Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚ РїРѕСЃР°РґРѕС‡РЅРѕРіРѕ РјР°С‚РµСЂРёР°Р»Р°<br /><br /></span></td>
         <td><span style="color: #000000;"><img src="http://semena.by/files/staty/ikonki5.jpg" alt="" width="100" height="99" /></span></td>
         <td>
-            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>Контроль качества</b></span></span></p>
-            <p style="text-align: left;"><span style="color: #000000;">Весь посадочный материал проходит контроль семенной и карантинной государственных инспекций</span></p>
+            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>РљРѕРЅС‚СЂРѕР»СЊ РєР°С‡РµСЃС‚РІР°</b></span></span></p>
+            <p style="text-align: left;"><span style="color: #000000;">Р’РµСЃСЊ РїРѕСЃР°РґРѕС‡РЅС‹Р№ РјР°С‚РµСЂРёР°Р» РїСЂРѕС…РѕРґРёС‚ РєРѕРЅС‚СЂРѕР»СЊ СЃРµРјРµРЅРЅРѕР№ Рё РєР°СЂР°РЅС‚РёРЅРЅРѕР№ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹С… РёРЅСЃРїРµРєС†РёР№</span></p>
         </td>
     </tr>
     <tr>
         <td><span style="color: #000000;"><img src="http://semena.by/files/staty/ikonki0.jpg" alt="" width="100" height="99" /></span></td>
         <td>
-            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>СМС-уведомление</b></span></span></p>
-            <p style="text-align: left;"><span style="color: #000000;">По факту отправки заказа Вы получаете <br />смс с кодом слежения посылки и <br />суммой наложенного платежа<br />&nbsp;</span></p>
+            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>РЎРњРЎ-СѓРІРµРґРѕРјР»РµРЅРёРµ</b></span></span></p>
+            <p style="text-align: left;"><span style="color: #000000;">РџРѕ С„Р°РєС‚Сѓ РѕС‚РїСЂР°РІРєРё Р·Р°РєР°Р·Р° Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ <br />СЃРјСЃ СЃ РєРѕРґРѕРј СЃР»РµР¶РµРЅРёСЏ РїРѕСЃС‹Р»РєРё Рё <br />СЃСѓРјРјРѕР№ РЅР°Р»РѕР¶РµРЅРЅРѕРіРѕ РїР»Р°С‚РµР¶Р°<br />&nbsp;</span></p>
         </td>
         <td><span style="color: #000000;"><img src="http://semena.by/files/staty/ikonki.jpg" alt="" width="100" height="99" /></span></td>
         <td style="text-align: left;">
-            <p><span style="font-weight: bold;"><span style="color: #000000;"><b>Контроль вложения</b></span></span></p>
-            <span style="color: #000000;">Система компьютерной проверки и сбора заказов позволяет исключить недовлажения и пересортицу</span></td>
+            <p><span style="font-weight: bold;"><span style="color: #000000;"><b>РљРѕРЅС‚СЂРѕР»СЊ РІР»РѕР¶РµРЅРёСЏ</b></span></span></p>
+            <span style="color: #000000;">РЎРёСЃС‚РµРјР° РєРѕРјРїСЊСЋС‚РµСЂРЅРѕР№ РїСЂРѕРІРµСЂРєРё Рё СЃР±РѕСЂР° Р·Р°РєР°Р·РѕРІ РїРѕР·РІРѕР»СЏРµС‚ РёСЃРєР»СЋС‡РёС‚СЊ РЅРµРґРѕРІР»Р°Р¶РµРЅРёСЏ Рё РїРµСЂРµСЃРѕСЂС‚РёС†Сѓ</span></td>
     </tr>
     <tr>
         <td><span style="color: #000000;"><img src="http://semena.by/files/staty/ikonki7.jpg" alt="" width="100" height="99" /></span></td>
         <td>
-            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>Подарок каждому</b></span></span></p>
-            <p style="text-align: left;"><span style="color: #000000;">Мы любим своих клиентов. </span></p>
-            <p style="text-align: left;"><span style="color: #000000;">Каждый покупатель гарантированно <br />получает подарок<br />&nbsp;</span></p>
+            <p style="text-align: left;"><span style="font-weight: bold;"><span style="color: #000000;"><b>РџРѕРґР°СЂРѕРє РєР°Р¶РґРѕРјСѓ</b></span></span></p>
+            <p style="text-align: left;"><span style="color: #000000;">РњС‹ Р»СЋР±РёРј СЃРІРѕРёС… РєР»РёРµРЅС‚РѕРІ. </span></p>
+            <p style="text-align: left;"><span style="color: #000000;">РљР°Р¶РґС‹Р№ РїРѕРєСѓРїР°С‚РµР»СЊ РіР°СЂР°РЅС‚РёСЂРѕРІР°РЅРЅРѕ <br />РїРѕР»СѓС‡Р°РµС‚ РїРѕРґР°СЂРѕРє<br />&nbsp;</span></p>
         </td>
         <td><span style="color: #000000;"><img src="http://semena.by/files/staty/ikonki6.jpg" alt="" width="100" height="99" /></span></td>
         <td style="text-align: left;">
-            <p><span style="font-weight: bold;"><span style="color: #000000;"><b>Гарантия возврата</b></span></span></p>
-            <span style="color: #000000;">При получении некачественного материала мы бесплатно заменим на качественный либо вернем деньги</span></td>
+            <p><span style="font-weight: bold;"><span style="color: #000000;"><b>Р“Р°СЂР°РЅС‚РёСЏ РІРѕР·РІСЂР°С‚Р°</b></span></span></p>
+            <span style="color: #000000;">РџСЂРё РїРѕР»СѓС‡РµРЅРёРё РЅРµРєР°С‡РµСЃС‚РІРµРЅРЅРѕРіРѕ РјР°С‚РµСЂРёР°Р»Р° РјС‹ Р±РµСЃРїР»Р°С‚РЅРѕ Р·Р°РјРµРЅРёРј РЅР° РєР°С‡РµСЃС‚РІРµРЅРЅС‹Р№ Р»РёР±Рѕ РІРµСЂРЅРµРј РґРµРЅСЊРіРё</span></td>
     </tr>
     </tbody>
 </table>
 
 <div style="text-align: center;font-family: verdana, geneva;color: #003300;font-size: medium;">
-Наши реквизиты : ${info.requisites}<br>
-Св-во  Мингорисполкома   №193573828 от  21.07.2021г.<br>
+РќР°С€Рё СЂРµРєРІРёР·РёС‚С‹ : ${info.requisites}<br>
+РЎРІ-РІРѕ  РњРёРЅРіРѕСЂРёСЃРїРѕР»РєРѕРјР°   в„–193573828 РѕС‚  21.07.2021Рі.<br>
 IBAN: BY 86 UNBS 3013 0444 0900 0000 9933<br>
-в ЗАО «БСБ Банк» г. МинскBIC: UNBSBY2Х<br>
-e-mail: ${info.email}, адрес для писем: ${info.mailingAddress}<br>
-Регистрационный номер в Торговом Реестре РБ: ${info.registrationNumber}</div>
-<%--<jsp:include page="footer.jsp" />--%>
+РІ Р—РђРћ В«Р‘РЎР‘ Р‘Р°РЅРєВ» Рі. РњРёРЅСЃРєBIC: UNBSBY2РҐ<br>
+e-mail: ${info.email}, Р°РґСЂРµСЃ РґР»СЏ РїРёСЃРµРј: ${info.mailingAddress}<br>
+Р РµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ РЅРѕРјРµСЂ РІ РўРѕСЂРіРѕРІРѕРј Р РµРµСЃС‚СЂРµ Р Р‘: ${info.registrationNumber}</div>
 </body>
 </html>

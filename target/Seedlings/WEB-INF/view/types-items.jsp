@@ -5,7 +5,7 @@
   Time: 11:45
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html;charset=cp1251"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <!doctype html>
@@ -49,9 +49,9 @@
 <br>
 <table>
     <tr>
-        <th>Название</th>
-        <th>Цена</th>
-        <th>Статус</th>
+        <th>РќР°Р·РІР°РЅРёРµ</th>
+        <th>Р¦РµРЅР°</th>
+        <th>РЎС‚Р°С‚СѓСЃ</th>
 
     </tr>
     <c:forEach var="item" items="${allTypeItems}">
@@ -62,18 +62,18 @@
             </c:url>
 
             <td><a onclick="window.location.href = '${ItemInfo}'">${item.name}</a></td>
-            <td>${item.unitPrice} руб.</td>
+            <td>${item.unitPrice} СЂСѓР±.</td>
             <c:set var = "status" value = "${item.status}"/>
             <c:if test = "${status<=10 and status!=0}">
-                <td>Последние <c:out value = "${salary}"/>!!!</td>
+                <td>РџРѕСЃР»РµРґРЅРёРµ <c:out value = "${salary}"/>!!!</td>
             </c:if>
             <c:if test = "${status==0}">
-                <td>Нет на складе</td>
+                <td>РќРµС‚ РЅР° СЃРєР»Р°РґРµ</td>
             </c:if>
             <c:url var="Basket" value="/seedlings.by/addBasketItem">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
-            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'">В корзину</a></div></td>
+            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'">Р’ РєРѕСЂР·РёРЅСѓ</a></div></td>
         </tr>
     </c:forEach>
 </table>

@@ -936,7 +936,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="275" parent="1" name="auf">
       <Current>1</Current>
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="276" parent="1" name="diplom">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
@@ -989,7 +989,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </table>
     <table id="290" parent="275" name="clients">
       <Engine>InnoDB</Engine>
-      <CollationName>cp1251_general_ci</CollationName>
+      <CollationName>utf8_unicode_ci</CollationName>
     </table>
     <table id="291" parent="275" name="hibernate_sequence">
       <Engine>MyISAM</Engine>
@@ -1157,7 +1157,6 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="325" parent="290" name="email">
       <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
       <Position>3</Position>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </column>
@@ -1168,7 +1167,6 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="327" parent="290" name="index">
       <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <column id="328" parent="290" name="city">
@@ -1267,7 +1265,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>4</Position>
     </column>
     <column id="348" parent="293" name="image">
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>varchar(300)|0s</DataType>
       <Position>5</Position>
     </column>
     <column id="349" parent="293" name="details">
@@ -1447,13 +1445,13 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+      <CollationName>utf8_general_ci</CollationName>
     </column>
     <column id="384" parent="297" name="text">
       <DataType>varchar(400)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+      <CollationName>utf8_general_ci</CollationName>
     </column>
     <column id="385" parent="297" name="date">
       <DataType>datetime|0s</DataType>

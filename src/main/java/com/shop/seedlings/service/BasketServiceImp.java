@@ -87,12 +87,20 @@ public class BasketServiceImp implements BasketService{
     }
 
     @Override
+    @Transactional
     public Order getOrderByHostId(int hostId) {
         return basketDao.getOrderByHostId(hostId);
     }
 
     @Override
+    @Transactional
     public void saveOrder(Order order) {
 basketDao.saveOrder(order);
+    }
+
+    @Override
+    @Transactional
+    public void saveOrderItem(OrderItem orderItem) {
+        basketDao.saveOrderItem(orderItem);
     }
 }

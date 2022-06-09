@@ -2,7 +2,6 @@ package com.shop.seedlings.controller;
 
 import com.shop.seedlings.domain.entity.Info;
 import com.shop.seedlings.domain.entity.PickupAddress;
-import com.shop.seedlings.domain.entity.Question;
 import com.shop.seedlings.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
