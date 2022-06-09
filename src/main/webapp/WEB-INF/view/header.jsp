@@ -10,22 +10,22 @@
   </head>
 <body>
 
-<table style="font-size: medium;background-color: aquamarine;width: 600px;">
-            <tr class="navbar-nav">
-                <td class="nav-item">
-                    <a class="nav-link" href="/seedlings.by/catalog">Каталог</a>
+<table style="font-size: large;width: 80%; text-align: center">
+            <tr >
+                <td>
+                    <a  href="/seedlings.by/catalog">Каталог</a>
                 </td>
-                <td class="nav-item">
-                    <a class="nav-link" href="/seedlings.by/delivery">Доставка</a>
+                <td >
+                    <a  href="/seedlings.by/delivery">Доставка</a>
                 </td>
-                <td class="nav-item">
-                    <a class="nav-link" href="/seedlings.by/about">О нас</a>
+                <td >
+                    <a href="/seedlings.by/about">О нас</a>
                 </td>
-                <td class="nav-item" style="color: darkorange;">
-                    <a class="nav-link" href="/seedlings.by/discount">Акции</a>
+                <td  style="color: darkorange;">
+                    <a href="/seedlings.by/discount">Акции</a>
                 </td>
-                <td class="nav-item">
-                    <a class="nav-link" href="/seedlings.by/basket">Корзина</a>
+                <td>
+                    <a href="/seedlings.by/basket">Корзина</a>
                 </td>
             </tr>
 </table>

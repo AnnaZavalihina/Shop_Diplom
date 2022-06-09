@@ -17,8 +17,8 @@
 <body>
 <jsp:include page="header.jsp" />
 
-<h1 class="title title_center">Правила доставки и оплаты заказа товара в магазине www.seedlings.by</h1>
-<div class="article_text_block">
+<h1 style="text-align: center">Правила доставки и оплаты заказа товара в магазине www.seedlings.by</h1>
+<div>
     <div><span style="font-size: medium;">
 <table style="text-align: center;width: 80%;" border="0" cellspacing="50" frame="border" rules="all">
 <tbody>
@@ -76,7 +76,7 @@
         <table style="width: 100%;" border="0" frame="box" rules="all">
             <tbody>
             <tr>
-                <td style="text-align: center;"><span style="font-size: large;"><span style="font-family: verdana, geneva;"><b>#2. Курьером на дом</b></span></span><br /><span style="font-size: medium;">(Вы оплачиваете товар + упаковочные работы <b>2,99</b> руб.)<br />Доставка осуществляется в любой населенный пункт Республики Беларусь на указанный в заявке адрес. Время доставки согласовывается заранее по телефону. По факту формирования отправления с Вами свяжется опеторатор. Все почтовые отправления выдаются на основании документа, удостоверяющего личность, либо по доверенности. Доставку осуществляют курьерские службы РУП Белпочта и Европочта<br />Стоимость доставки по Беларуси - <b>13,99</b> руб. (<span style="color: #ff0000;"><b>БЕСПЛАТНО</b></span> от 150 руб.)<a name="3"></a><br /></span></td>
+                <td style="text-align: center;"><span style="font-size: large;"><span style="font-family: verdana, geneva;"><b>#2. Курьером на дом</b></span></span><br /><span style="font-size: medium;">(Вы оплачиваете товар + упаковочные работы <b>2,99</b> руб.)<br />Доставка осуществляется в любой населенный пункт Республики Беларусь адрес названный вами после телефонного звонка. Время доставки также согласовывается заранее по телефону. По факту формирования отправления с Вами свяжется опеторатор. Все почтовые отправления выдаются на основании документа, удостоверяющего личность, либо по доверенности. Доставку осуществляют курьерские службы РУП Белпочта и Европочта<br />Стоимость доставки по Беларуси - <b>13,99</b> руб. (<span style="color: #ff0000;"><b>БЕСПЛАТНО</b></span> от 150 руб.)<a name="3"></a><br /></span></td>
             </tr>
             </tbody>
         </table>

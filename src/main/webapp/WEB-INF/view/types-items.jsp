@@ -18,6 +18,7 @@
 <body>
 <jsp:include page="header.jsp" />
 
+<table class="main" width="80%"><tr><td style="vertical-align: top">
 <ul>
     <c:forEach var="type" items="${allTypes}">
         <c:url var="Type" value="/seedlings.by/type">
@@ -44,39 +45,37 @@
 
     </c:forEach>
 </ul>
+</td>
+<td>
 
-<h2><c:out value="${type.name}"/></h2>
+<h2 style="text-align: center"><c:out value="${type.name}"/></h2>
 <br>
 <table>
-    <tr>
-        <th>Название</th>
-        <th>Цена</th>
-        <th>Статус</th>
 
-    </tr>
     <c:forEach var="item" items="${allTypeItems}">
 
-        <tr>
+        <td>
             <c:url var="ItemInfo" value="/seedlings.by/item">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
-
-            <td><a onclick="window.location.href = '${ItemInfo}'">${item.name}</a></td>
-            <td>${item.unitPrice} руб.</td>
+            <td><img src="${item.image}" width="200px" height="200px"></td>
+            <td><a onclick="window.location.href = '${ItemInfo}'">${item.name}</a><br>
+                    ${item.unitPrice} руб.<br>
             <c:set var = "status" value = "${item.status}"/>
             <c:if test = "${status<=10 and status!=0}">
-                <td>Последние <c:out value = "${salary}"/>!!!</td>
+                Последние <c:out value = "${salary}"/>!!!
             </c:if>
             <c:if test = "${status==0}">
-                <td>Нет на складе</td>
-            </c:if>
+                Нет на складе
+            </c:if></td>
             <c:url var="Basket" value="/seedlings.by/addBasketItem">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
-            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'">В корзину</a></div></td>
+            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'"><b>В корзину</b></a></div></td>
         </tr>
     </c:forEach>
 </table>
 <c:out value="${type.details}"/>
+</td></tr></table>
 </body>
 </html>

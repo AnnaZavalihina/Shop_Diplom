@@ -18,27 +18,21 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-<h2>Скидка</h2>
+<h2 style="text-align: center">АКЦИЯ</h2>
 <br>
 <table>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Status</th>
-
-    </tr>
     <c:forEach var="item" items="${allDiscountItems}">
 
         <tr>
             <c:url var="ItemInfo" value="/seedlings.by/item">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
-
+            <td><img src="${item.image}" width="200px" height="200px"></td>
             <td><a onclick="window.location.href = '${ItemInfo}'">${item.name}</a></td>
             <c:set var = "oldPrice" value = "${item.unitPrice/0.8}"/>
             <c:set var = "newPrice" value = "${String.format('%.2f',oldPrice)}"/>
-            <td><div style="color: gray; text-decoration:line-through">${newPrice}</div>
-                <div style="color: red; text-decoration:blink"> <c:out value = "${item.unitPrice}"/> </div></td>
+            <td><div style="color: gray; text-decoration:line-through">${newPrice} руб.</div>
+                <div style="color: red; text-decoration:blink"> <c:out value = "${item.unitPrice}"/> руб.</div></td>
             <c:set var = "status" value = "${item.status}"/>
             <c:if test = "${status<=10 and status!=0}">
                 <td>Последние <c:out value = "${status}"/>!!!</td>
