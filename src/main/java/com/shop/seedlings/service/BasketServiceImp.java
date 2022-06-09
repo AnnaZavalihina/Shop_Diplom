@@ -1,10 +1,7 @@
 package com.shop.seedlings.service;
 
 import com.shop.seedlings.dao.BasketDao;
-import com.shop.seedlings.domain.entity.Address;
-import com.shop.seedlings.domain.entity.Basket;
-import com.shop.seedlings.domain.entity.BasketItem;
-import com.shop.seedlings.domain.entity.Client;
+import com.shop.seedlings.domain.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,12 +33,6 @@ public class BasketServiceImp implements BasketService{
 
     @Override
     @Transactional
-    public Address getAddressById(int id) {
-        return basketDao.getAddressById(id);
-    }
-
-    @Override
-    @Transactional
     public void saveBasketItem(BasketItem basketItem) {
         basketDao.saveBasketItem(basketItem);
     }
@@ -50,5 +41,34 @@ public class BasketServiceImp implements BasketService{
     @Transactional
     public BasketItem getItemById(int id) {
         return basketDao.getItemById(id);
+    }
+
+    @Override
+    @Transactional
+    public BasketItem itemToBasketItem(Item item, int basketId) {
+        return basketDao.itemToBasketItem(item,basketId);
+    }
+
+    @Override
+    @Transactional
+    public int getBasketByIp(String ip) {
+        return basketDao.getBasketByIp(ip);
+    }
+
+    @Override
+    @Transactional
+    public void saveBasket(Basket basket) {
+        basketDao.saveBasket(basket);
+    }
+
+    @Override
+    @Transactional
+    public List<Basket> getAllBaskets() {
+        return basketDao.getAllBaskets();
+    }
+
+    @Override
+    public void deleteBasketItem(int id) {
+        basketDao.deleteBasketItem(id);
     }
 }

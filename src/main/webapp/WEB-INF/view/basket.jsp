@@ -17,51 +17,43 @@
 <body>
 <jsp:include page="header.jsp" />
 
-<%--<h1 style="text-align: center;">Корзина</h1>--%>
-<%--<br>--%>
-<%--<table>--%>
-<%--    <tr>--%>
-<%--        <th>Image</th>--%>
-<%--        <th>Name</th>--%>
-<%--        <th>Price</th>--%>
-<%--        <th>Status</th>--%>
-<%--        <th>Details</th>--%>
+<h2>КОРЗИНА</h2>
+<br>
+<c:if test="${basketItems.size()!=0}">
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Цена</th>
 
-<%--        <c:url var="addButton" value="/seedlings.by">--%>
-<%--            <c:param name="itemId" value="${item.id}"/>--%>
-<%--        </c:url>--%>
+    </tr>
+    <c:forEach var="item" items="${basketItems}">
 
-<%--    </tr>--%>
-<%--    <c:forEach var="item" items="${allItems}">--%>
-
-<%--        <c:url var="deleteButton" value="/seedlings.by/discount">--%>
-<%--            <c:param name="itemId" value="${item.id}"/>--%>
-<%--        </c:url>--%>
-
-<%--        <c:url var="Edit" value="/seedlings.by/discount">--%>
-<%--            <c:param name="itemId" value="${item.id}"/>--%>
-<%--        </c:url>--%>
-
-<%--        <tr>--%>
-<%--            <td>${item.image}</td>--%>
-<%--            <td><a href="#">${item.name}</a></td>--%>
-<%--            <td>${item.unitPrice}</td>--%>
-<%--            <td>${item.status}</td>--%>
-<%--            <td>${item.details}</td>--%>
-
-<%--            <td><input type="button" value="Delete"--%>
-<%--                       onclick="window.location.href = '${deleteButton}'"/>--%>
-<%--            </td>--%>
-<%--            <td><input type="button" value="Edit"--%>
-<%--                       onclick="window.location.href = '${Edit}'"/>--%>
-<%--            </td>--%>
-<%--        </tr>--%>
-<%--    </c:forEach>--%>
-<%--</table>--%>
-<%--<br>--%>
-<%--<input type="button" value="Add new Item"--%>
-<%--       onclick="window.location.href = '${addButton}'"/>--%>
-
-<%--<jsp:include page="footer.jsp" />--%>
+        <tr>
+            <td>${item.item.name} руб.</td>
+            <td>${item.price} руб.</td>
+            <c:url var="DeleteItem" value="/seedlings.by/deleteBasketItem">
+                <c:param name="itemId" value="${item.id}"/>
+            </c:url>
+            <td><a onclick="window.location.href = '${DeleteItem}'">Удалить товар</a></td>
+        </tr>
+    </c:forEach>
+    <tr>
+        <td><b>Общая стоимость</b></td>
+        <td>${basket.price} руб.</td>
+    </tr>
+</table>
+<c:url var="Back" value="/seedlings.by/catalog">
+</c:url>
+<c:url var="Order" value="/seedlings.by/makeOrder">
+</c:url>
+<div><a onclick="window.location.href = '${Back}'">Назад к выбору товаров</a>
+<a type="button" onclick="window.location.href = '${Order}'">Оформить заказ</a></div>
+</c:if>
+<c:if test="${basketItems.size()==0}">
+    <c:url var="Back" value="/seedlings.by/catalog">
+    </c:url>
+    <div style="font-size: medium;text-align: center">Вкорзине нет товаров</div>
+    <div style="font-size: medium"><a onclick="window.location.href = '${Back}'">Назад к выбору товаров</a></div>
+</c:if>
 </body>
 </html>

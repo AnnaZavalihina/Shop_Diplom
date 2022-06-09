@@ -23,6 +23,10 @@ public class Basket {
     public Basket() {
     }
 
+    public Basket(Date date) {
+        this.date = date;
+    }
+
     public Basket(Date date, double price, List<BasketItem> basketItems) {
         this.date = date;
         this.price = price;

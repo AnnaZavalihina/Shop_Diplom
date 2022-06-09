@@ -15,6 +15,7 @@ public interface ItemService {
 
     List<Type> getAllTypes();
     List<Subtype> getAllSubtypes(int typeId);
+    List<Subtype> getSubtypes();
 
     List<Item> getAllSubtypeItems(int subtypeId);
     List<Item> getAllTypeItems(int typeId);

@@ -55,6 +55,11 @@ public class ItemServiceImp implements ItemService {
     }
 
     @Override
+    public List<Subtype> getSubtypes() {
+        return itemDao.getSubtypes();
+    }
+
+    @Override
     @Transactional
     public List<Item> getAllSubtypeItems(int subtypeId) {
         return itemDao.getAllSubtypeItems(subtypeId);

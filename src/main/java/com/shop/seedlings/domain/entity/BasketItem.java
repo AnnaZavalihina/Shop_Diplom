@@ -12,7 +12,7 @@ public class BasketItem {
     @Column(name = "id")
     private int id;
     @Column(name = "quantity_buy")
-    private Date quantity;
+    private int quantity;
     @Column(name = "price")
     private double price;
 
@@ -26,7 +26,7 @@ public class BasketItem {
     public BasketItem() {
     }
 
-    public BasketItem(Date quantity, double price, Basket basket, Item item) {
+    public BasketItem(int quantity, double price, Basket basket, Item item) {
         this.quantity = quantity;
         this.price = price;
         this.basket = basket;
@@ -41,11 +41,11 @@ public class BasketItem {
         this.id = id;
     }
 
-    public Date getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Date quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

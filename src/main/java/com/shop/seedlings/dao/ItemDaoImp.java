@@ -74,6 +74,14 @@ public class ItemDaoImp implements ItemDao{
     }
 
     @Override
+    public List<Subtype> getSubtypes() {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Subtype> query = session.createQuery("FROM Subtype", Subtype.class);
+        List<Subtype> allSubtypes = query.getResultList();
+        return allSubtypes;
+    }
+
+    @Override
     public List<Type> getAllTypes() {
         Session session = sessionFactory.getCurrentSession();
         Query<Type> query = session.createQuery("FROM Type", Type.class);

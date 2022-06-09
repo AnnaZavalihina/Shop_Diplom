@@ -15,6 +15,19 @@ public class PickupAddress {
     @Column(name = "working_hours")
     private String workingHours;
 
+    public PickupAddress(String address, String workingHours) {
+        this.address = address;
+        this.workingHours = workingHours;
+    }
+
+    public String getWorkingHours() {
+        return workingHours;
+    }
+
+    public void setWorkingHours(String workingHours) {
+        this.workingHours = workingHours;
+    }
+
     public PickupAddress(String address) {
         this.address = address;
     }

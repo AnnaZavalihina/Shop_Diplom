@@ -1,6 +1,7 @@
 package com.shop.seedlings.domain.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
 
@@ -11,8 +12,10 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    @NotNull
     @Column(name = "username")
     private String username;
+    @NotNull
     @Column(name = "text")
     private String text;
     @Column(name = "date")

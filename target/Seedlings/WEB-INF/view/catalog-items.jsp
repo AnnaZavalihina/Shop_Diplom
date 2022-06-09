@@ -1,5 +1,5 @@
 
-<%@ page language="java" contentType="text/html;charset=cp1251"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <!doctype html>
@@ -11,7 +11,6 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-
 <ul>
 <c:forEach var="type" items="${allTypes}">
     <c:url var="Type" value="/seedlings.by/type">
@@ -21,13 +20,13 @@
     <li><a onclick="window.location.href = '${Type}'">${type.name}</a></li>
 </c:forEach></ul>
 
-<h2>КАТАЛОГ РАСТЕНИЙ</h2>
+<h2>РљРђРўРђР›РћР“ Р РђРЎРўР•РќРР™</h2>
 <br>
 <table>
     <tr>
-        <th>Название</th>
-        <th>Цена</th>
-        <th>Статус</th>
+        <th>РќР°Р·РІР°РЅРёРµ</th>
+        <th>Р¦РµРЅР°</th>
+        <th>РЎС‚Р°С‚СѓСЃ</th>
 
     </tr>
     <c:forEach var="item" items="${allItems}">
@@ -38,14 +37,19 @@
             </c:url>
 
             <td><a onclick="window.location.href = '${ItemInfo}'">${item.name}</a></td>
-            <td>${item.unitPrice} руб.</td>
+            <td>${item.unitPrice} СЂСѓР±.</td>
             <c:set var = "status" value = "${item.status}"/>
             <c:if test = "${status<=10 and status!=0}">
-            <td>Последние <c:out value = "${salary}"/>!!!</td>
+            <td>РџРѕСЃР»РµРґРЅРёРµ <c:out value = "${status}"/>!!!</td>
             </c:if>
             <c:if test = "${status==0}">
-                <td>Нет на складе</td>
+                <td>РќРµС‚ РЅР° СЃРєР»Р°РґРµ</td>
             </c:if>
+            <c:url var="Basket" value="/seedlings.by/addBasketItem">
+                <c:param name="itemId" value="${item.id}"/>
+            </c:url>
+            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'">Р’ РєРѕСЂР·РёРЅСѓ</a></div></td>
+
         </tr>
     </c:forEach>
 </table>

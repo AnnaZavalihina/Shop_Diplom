@@ -35,17 +35,21 @@
             </c:url>
 
             <td><a onclick="window.location.href = '${ItemInfo}'">${item.name}</a></td>
-            <c:set var = "oldPrice" value = "${item.unitPrice*0.8}"/>
+            <c:set var = "oldPrice" value = "${item.unitPrice/0.8}"/>
             <c:set var = "newPrice" value = "${String.format('%.2f',oldPrice)}"/>
-            <td><div style="color: gray; text-decoration:line-through">${item.unitPrice}</div>
-                <div style="color: red; text-decoration:blink"> <c:out value = "${newPrice}"/> </div></td>
+            <td><div style="color: gray; text-decoration:line-through">${newPrice}</div>
+                <div style="color: red; text-decoration:blink"> <c:out value = "${item.unitPrice}"/> </div></td>
             <c:set var = "status" value = "${item.status}"/>
             <c:if test = "${status<=10 and status!=0}">
-                <td>Последние <c:out value = "${salary}"/>!!!</td>
+                <td>Последние <c:out value = "${status}"/>!!!</td>
             </c:if>
             <c:if test = "${status==0}">
                 <td>Нет на складе</td>
             </c:if>
+            <c:url var="Basket" value="/seedlings.by/addBasketItem">
+                <c:param name="item" value="${item.id}"/>
+            </c:url>
+            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'">В корзину</a></div></td>
         </tr>
     </c:forEach>
 </table>

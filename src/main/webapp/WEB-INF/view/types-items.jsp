@@ -70,6 +70,10 @@
             <c:if test = "${status==0}">
                 <td>Нет на складе</td>
             </c:if>
+            <c:url var="Basket" value="/seedlings.by/addBasketItem">
+                <c:param name="itemId" value="${item.id}"/>
+            </c:url>
+            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'">В корзину</a></div></td>
         </tr>
     </c:forEach>
 </table>

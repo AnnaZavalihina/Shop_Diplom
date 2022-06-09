@@ -1,5 +1,6 @@
 package com.shop.seedlings.service;
 
+import com.shop.seedlings.domain.entity.Answer;
 import com.shop.seedlings.domain.entity.Info;
 import com.shop.seedlings.domain.entity.PickupAddress;
 import com.shop.seedlings.domain.entity.Question;
@@ -14,4 +15,5 @@ public interface ShopService {
     List<PickupAddress> getAllPickupAddresses();
     void editInfo(Info info);
     void saveQuestion(Question question);
+    Answer getAnswerById(int id);
 }

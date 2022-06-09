@@ -2,10 +2,7 @@ package com.shop.seedlings.service;
 
 import com.shop.seedlings.dao.ItemDao;
 import com.shop.seedlings.dao.ShopDao;
-import com.shop.seedlings.domain.entity.Info;
-import com.shop.seedlings.domain.entity.Item;
-import com.shop.seedlings.domain.entity.PickupAddress;
-import com.shop.seedlings.domain.entity.Question;
+import com.shop.seedlings.domain.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,5 +55,10 @@ public class ShopServiceImp implements ShopService{
     @Transactional
     public void saveQuestion(Question question) {
         shopDao.saveQuestion(question);
+    }
+
+    @Override
+    public Answer getAnswerById(int id) {
+        return shopDao.getAnswerById(id);
     }
 }

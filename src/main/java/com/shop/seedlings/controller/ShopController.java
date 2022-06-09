@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -51,10 +52,9 @@ public class ShopController {
     @RequestMapping("/seedlings.by/your-question")
     public String saveQuestion(@ModelAttribute("question") Question question, Model model) {
 
-        question.setDate(new Date());
+        question.setDate(new java.sql.Date(System.currentTimeMillis()));
         shopService.saveQuestion(question);
-        SimpleDateFormat formatForDateNow = new SimpleDateFormat("hh:mm a dd.MM.yyyy");
-        model.addAttribute("formatForDateNow", formatForDateNow);
+//        String dateQuestion = new SimpleDateFormat("dd/MM/yyyy").format( aDate );
         return "redirect:/seedlings.by/questions";
     }
 }

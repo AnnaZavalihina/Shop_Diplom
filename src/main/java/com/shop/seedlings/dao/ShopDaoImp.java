@@ -1,8 +1,6 @@
 package com.shop.seedlings.dao;
 
-import com.shop.seedlings.domain.entity.Info;
-import com.shop.seedlings.domain.entity.PickupAddress;
-import com.shop.seedlings.domain.entity.Question;
+import com.shop.seedlings.domain.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -67,5 +65,12 @@ public class ShopDaoImp implements ShopDao{
     public void saveQuestion(Question question) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(question);
+    }
+
+    @Override
+    public Answer getAnswerById(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Answer answer = session.get(Answer.class, id);
+        return answer;
     }
 }

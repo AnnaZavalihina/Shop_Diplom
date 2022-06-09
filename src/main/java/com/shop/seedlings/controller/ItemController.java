@@ -7,7 +7,6 @@ import com.shop.seedlings.service.BasketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.shop.seedlings.service.ItemService;
 import com.shop.seedlings.domain.entity.Item;
@@ -27,8 +26,24 @@ public class ItemController {
     private BasketService basketService;
 
     @RequestMapping("/seedlings.by")
-    public String showAllItems(Model model) {
-
+    public String firstCatalog(Model model, HttpServletResponse response, HttpServletRequest request) {
+    String newId = Integer.toString(basketService.getAllBaskets().size()+1);
+    Basket b=new Basket(new java.sql.Date(System.currentTimeMillis()),0,null);
+        basketService.saveBasket(b);
+    Cookie cookie = new Cookie("i",newId);
+    cookie.setMaxAge(24*60*60);
+    response.addCookie(cookie);
+        List<Item> allItems = itemService.getAllItems();
+        model.addAttribute("allItems", allItems);
+        List<Type> allTypes = itemService.getAllTypes();
+        model.addAttribute("allTypes", allTypes);
+        return "catalog-items";
+    }
+    @RequestMapping("/seedlings.by/catalog")
+    public String showAllItems(Model model,HttpServletRequest request) {
+        Cookie [] c=request.getCookies();
+        String i=c[0].getValue();
+        model.addAttribute("i", i);
         List<Item> allItems = itemService.getAllItems();
         model.addAttribute("allItems", allItems);
         List<Type> allTypes = itemService.getAllTypes();
