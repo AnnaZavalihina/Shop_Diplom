@@ -11,6 +11,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
+<table class="main" width="80%"><tr><td>
 <ul>
 <c:forEach var="type" items="${allTypes}">
     <c:url var="Type" value="/seedlings.by/type">
@@ -18,8 +19,8 @@
     </c:url>
 
     <li><a onclick="window.location.href = '${Type}'">${type.name}</a></li>
-</c:forEach></ul>
-
+</c:forEach></ul></td>
+<td>
 <h2>КАТАЛОГ РАСТЕНИЙ</h2>
 <br>
 <table>
@@ -52,6 +53,6 @@
 
         </tr>
     </c:forEach>
-</table>
+</table></td></tr></table>
 </body>
 </html>

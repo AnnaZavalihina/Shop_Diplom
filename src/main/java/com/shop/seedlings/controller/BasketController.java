@@ -37,6 +37,7 @@ public class BasketController {
     public String addBasketItems(Model model, @RequestParam("itemId") int itemId, HttpServletRequest request, HttpServletResponse response) {
         Cookie[] c = request.getCookies();
         int hostId = Integer.parseInt(c[0].getValue());
+
         Item item = itemService.getItemById(itemId);
         BasketItem basketItem = basketService.itemToBasketItem(item, hostId);
         basketService.saveBasketItem(basketItem);
@@ -72,8 +73,6 @@ public class BasketController {
         model.addAttribute("basketItems", basketItems);
         model.addAttribute("basket", basket);
 
-        model.addAttribute("hostId", hostId);
-
         Client client = new Client();
         model.addAttribute("client", client);
         return "order";
@@ -82,11 +81,11 @@ public class BasketController {
     @RequestMapping("/seedlings.by/order")
     public String doOrder(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("client") Client client) {
 
-//        basketService.checkClient(client);
-//        basketService.saveClient(client);
-
         Cookie[] c = request.getCookies();
         int hostId = Integer.parseInt(c[0].getValue());
+        client.setId(hostId);
+        basketService.saveClient(client);
+
         double price = basketService.getBasketById(hostId).getPrice();
 
         Order order = new Order(new java.sql.Date(System.currentTimeMillis()),price,hostId,null);
@@ -94,12 +93,17 @@ public class BasketController {
         Order orderByHostId = basketService.getOrderByHostId(hostId);
 
         List<BasketItem> basketItems = basketService.getAllBasketItems(hostId);
-        List<OrderItem> orderItemList = null;
-        for (BasketItem item:basketItems) {
+
+        for (BasketItem basketItem:basketItems) {
             OrderItem oi=new OrderItem();
-            oi.setPrice(item.getPrice());
-            oi.setItem(item.getItem());
-            oi.setQuantity(item.getQuantity());
+            oi.setPrice(basketItem.getPrice());
+            oi.setItem(basketItem.getItem());
+            oi.setQuantity(basketItem.getQuantity());
+
+            Item item = itemService.getItemById(basketItem.getItem().getId());
+            item.setStatus(item.getStatus()-basketItem.getQuantity());
+            itemService.saveItem(item);
+
             oi.setOrder(orderByHostId);
             basketService.saveOrderItem(oi);
         }

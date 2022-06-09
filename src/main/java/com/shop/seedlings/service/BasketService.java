@@ -7,9 +7,7 @@ import java.util.List;
 public interface BasketService {
     Basket getBasketById(int id);
     List<BasketItem> getAllBasketItems(int basketId);
-    Client getClientById(int id);
     void saveClient(Client client);
-    boolean checkClient(Client client);
 
     void saveBasketItem(BasketItem basketItem);
      BasketItem getItemById(int id);

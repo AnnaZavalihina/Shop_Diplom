@@ -34,24 +34,4 @@ public class ShopController {
 
         return "about";
     }
-
-    @RequestMapping("/seedlings.by/questions")
-    public String questionsAnswers(Model model) {
-
-        List<Question> allQuestion = shopService.getAllQuestions();
-        model.addAttribute("allQuestion", allQuestion);
-
-        Question question = new Question();
-        model.addAttribute("question", question);
-
-        return "questions-answers";
-    }
-    @RequestMapping("/seedlings.by/your-question")
-    public String saveQuestion(@ModelAttribute("question") Question question, Model model) {
-
-        question.setDate(new java.sql.Date(System.currentTimeMillis()));
-        shopService.saveQuestion(question);
-//        String dateQuestion = new SimpleDateFormat("dd/MM/yyyy").format( aDate );
-        return "redirect:/seedlings.by/questions";
-    }
 }

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Repository
 public class BasketDaoImp implements BasketDao {
@@ -22,21 +24,9 @@ public class BasketDaoImp implements BasketDao {
     }
 
     @Override
-    public Client getClientById(int id) {
-        Session session = sessionFactory.getCurrentSession();
-        Client client = session.get(Client.class, id);
-        return client;
-    }
-
-    @Override
     public void saveClient(Client client) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(client);
-    }
-
-    @Override
-    public boolean checkClient(Client client) {
-        return false;
     }
 
     @Override

@@ -7,10 +7,7 @@ import java.util.List;
 public interface BasketDao {
     Basket getBasketById(int id);
 
-    Client getClientById(int id);
-
     void saveClient(Client client);
-    boolean checkClient(Client client);
 
     List<BasketItem> getAllBasketItems(int basketId);
 

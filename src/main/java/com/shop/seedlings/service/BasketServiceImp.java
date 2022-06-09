@@ -25,11 +25,6 @@ public class BasketServiceImp implements BasketService{
         return basketDao.getAllBasketItems(basketId);
     }
 
-    @Override
-    @Transactional
-    public Client getClientById(int id) {
-        return basketDao.getClientById(id);
-    }
 
     @Override
     @Transactional
@@ -37,11 +32,6 @@ public class BasketServiceImp implements BasketService{
         basketDao.saveClient(client);
     }
 
-    @Override
-    @Transactional
-    public boolean checkClient(Client client) {
-        return basketDao.checkClient(client);
-    }
 
     @Override
     @Transactional

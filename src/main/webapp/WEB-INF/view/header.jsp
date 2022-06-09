@@ -6,18 +6,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><!------ Include the above in your HEAD tag ---------->
-</head>
+
+  </head>
 <body>
 
-<!-- Image and text -->
-<table style="font-size: medium;background-color: aquamarine">
+<table style="font-size: medium;background-color: aquamarine;width: 600px;">
             <tr class="navbar-nav">
                 <td class="nav-item">
-                    <a class="nav-link" href="/seedlings.by/catalog">Каталог <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/seedlings.by/catalog">Каталог</a>
                 </td>
                 <td class="nav-item">
                     <a class="nav-link" href="/seedlings.by/delivery">Доставка</a>
@@ -25,18 +21,13 @@
                 <td class="nav-item">
                     <a class="nav-link" href="/seedlings.by/about">О нас</a>
                 </td>
-                <td class="nav-item">
-                    <a class="nav-link" href="/seedlings.by/questions">Вопрос-ответ</a>
+                <td class="nav-item" style="color: darkorange;">
+                    <a class="nav-link" href="/seedlings.by/discount">Акции</a>
                 </td>
                 <td class="nav-item">
-                    <a class="nav-link" href="/seedlings.by/discount">Акции</a>
+                    <a class="nav-link" href="/seedlings.by/basket">Корзина</a>
                 </td>
             </tr>
 </table>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
 </body>
 </html>

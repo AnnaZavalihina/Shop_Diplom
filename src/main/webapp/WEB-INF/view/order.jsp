@@ -44,33 +44,15 @@
 <table style="align-self: center">
     <div style="align-content: center"><tr>
     <th> ИНФОРМАЦИЯ О КЛИЕНТЕ    </th>
-    <th>АДРЕС ДОСТАВКИ    </th>
-    </tr></div>
 
     <tr>
     <th>
-            <form:hidden path="id" value="${hostId}"/>
 
-            Ваше ФИО <form:input path="name"/>
+            Ваше ФИО как в паспорте^<br> <form:input path="name"/>
             <br><br>
             E-mail <form:input path="email"/>
             <br><br>
         Номер телефона <form:input path="telNumber" />
-            <br><br>
-    </th>
-
-    <th>
-        Индекс <form:input path="index"/>
-        <br><br>
-        Город <form:input path="city"/>
-        <br><br>
-        Улица <form:input path="street" />
-        <br><br>
-        Номер дома <form:input path="building"/>
-        <br>
-        корпус <form:input path="housing"/>,
-        квартира <form:input path="apartment"/>
-
     </th>
     </tr>
 </table>
