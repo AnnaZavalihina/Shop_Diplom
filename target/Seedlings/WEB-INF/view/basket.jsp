@@ -47,7 +47,10 @@
                 <a onclick="window.location.href = '${ReduceItem}'"><b><h2>-1</h2></b></a>
                 </c:if>
                     ${item.quantity}
+
+                <c:if test="${item.quantity<item.item.status}">
                 <a onclick="window.location.href = '${IncreaseItem}'"><b><h2>+1</h2></b></a>
+                </c:if>
             </div>
             </td>
             <c:url var="DeleteItem" value="/seedlings.by/deleteBasketItem">
