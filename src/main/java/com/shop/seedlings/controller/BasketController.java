@@ -25,7 +25,13 @@ public class BasketController {
     @RequestMapping("/seedlings.by/basket")
     public String showAllBasketItems(Model model, HttpServletRequest request, HttpServletResponse response) {
         Cookie[] c = request.getCookies();
-        int hostId = Integer.parseInt(c[0].getValue());
+        int hostId=0;
+        for (Cookie cookie: c) {
+            if(cookie.getName().equals("i")){
+                int coNum = Integer.parseInt(cookie.getValue());
+                hostId = coNum;
+            }
+        }
         List<BasketItem> basketItems = basketService.getAllBasketItems(hostId);
         Basket basket = basketService.getBasketById(hostId);
         model.addAttribute("basketItems", basketItems);
@@ -36,8 +42,13 @@ public class BasketController {
     @RequestMapping("/seedlings.by/addBasketItem")
     public String addBasketItems(Model model, @RequestParam("itemId") int itemId, HttpServletRequest request, HttpServletResponse response) {
         Cookie[] c = request.getCookies();
-        int hostId = Integer.parseInt(c[0].getValue());
-
+        int hostId=0;
+        for (Cookie cookie: c) {
+            if(cookie.getName().equals("i")){
+                int coNum = Integer.parseInt(cookie.getValue());
+                hostId = coNum;
+            }
+        }
         List<BasketItem> bi= basketService.getDoubleItems(itemId,hostId);
         Item item = itemService.getItemById(itemId);
 
@@ -63,7 +74,13 @@ public class BasketController {
     public String deleteBasketItem(Model model, @RequestParam("itemId") int itemId, HttpServletRequest request) {
         BasketItem item = basketService.getItemById(itemId);
         Cookie[] c = request.getCookies();
-        int hostId = Integer.parseInt(c[0].getValue());
+        int hostId=0;
+        for (Cookie cookie: c) {
+            if(cookie.getName().equals("i")){
+                int coNum = Integer.parseInt(cookie.getValue());
+                hostId = coNum;
+            }
+        }
 
         Basket basket = basketService.getBasketById(hostId);
         basket.setPrice(basket.getPrice() - item.getItem().getUnitPrice()*item.getQuantity());
@@ -78,7 +95,13 @@ public class BasketController {
     @RequestMapping("/seedlings.by/makeOrder")
     public String newOrder(Model model, HttpServletRequest request, HttpServletResponse response) {
         Cookie[] c = request.getCookies();
-        int hostId = Integer.parseInt(c[0].getValue());
+        int hostId=0;
+        for (Cookie cookie: c) {
+            if(cookie.getName().equals("i")){
+                int coNum = Integer.parseInt(cookie.getValue());
+                hostId = coNum;
+            }
+        }
         List<BasketItem> basketItems = basketService.getAllBasketItems(hostId);
         Basket basket = basketService.getBasketById(hostId);
         model.addAttribute("basketItems", basketItems);
@@ -93,7 +116,13 @@ public class BasketController {
     public String doOrder(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("client") Client client) {
 
         Cookie[] c = request.getCookies();
-        int hostId = Integer.parseInt(c[0].getValue());
+        int hostId=0;
+        for (Cookie cookie: c) {
+            if(cookie.getName().equals("i")){
+                int coNum = Integer.parseInt(cookie.getValue());
+                hostId = coNum;
+            }
+        }
         client.setId(hostId);
         basketService.saveClient(client);
 
@@ -119,13 +148,22 @@ public class BasketController {
         }
 
         basketService.dropAllItems(hostId);
-        return "redirect:/seedlings.by/catalog";
+        Basket basket=basketService.getBasketById(hostId);
+        basket.setPrice(0);
+        basketService.saveBasket(basket);
+        return "redirect:/seedlings.by";
     }
 
     @RequestMapping("/seedlings.by/reduceQuantity")
     public String reduceQuantity(Model model, HttpServletRequest request, HttpServletResponse response,@RequestParam("itemId") int itemId) {
         Cookie[] c = request.getCookies();
-        int hostId = Integer.parseInt(c[0].getValue());
+        int hostId=0;
+        for (Cookie cookie: c) {
+            if(cookie.getName().equals("i")){
+                int coNum = Integer.parseInt(cookie.getValue());
+                hostId = coNum;
+            }
+        }
 
         BasketItem basketItem= basketService.getItemById(itemId);
         basketItem.setQuantity(basketItem.getQuantity()-1);
@@ -142,7 +180,13 @@ public class BasketController {
     @RequestMapping("/seedlings.by/increaseQuantity")
     public String increaseQuantity(Model model, HttpServletRequest request, HttpServletResponse response,@RequestParam("itemId") int itemId) {
         Cookie[] c = request.getCookies();
-        int hostId = Integer.parseInt(c[0].getValue());
+        int hostId=0;
+        for (Cookie cookie: c) {
+            if(cookie.getName().equals("i")){
+                int coNum = Integer.parseInt(cookie.getValue());
+                hostId = coNum;
+            }
+        }
 
         BasketItem basketItem= basketService.getItemById(itemId);
         basketItem.setQuantity(basketItem.getQuantity()+1);
