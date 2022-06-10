@@ -10,7 +10,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Заказ</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -20,19 +22,21 @@
 <table><tr><td style="vertical-align: top">
 
 <table>
+    <h3 style="text-align: center">Товары</h3>
     <c:forEach var="item" items="${basketItems}">
 
         <tr>
             <td><img src="${item.item.image}" width="200px" height="200px"></td>
             <td style="text-align: center">${item.item.name}
-                <br><br><br>
-                    ${item.price} руб.</td>
+                <br><br>
+                <c:set value="${item.price}" var="price"/>
+                    ${String.format('%.2f',price)} руб.</td>
         </tr>
     </c:forEach>
-    <br><br>
     <tr>
-        <td><b>Общая стоимость</b></td>
-        <td>${basket.price} руб.</td>
+        <td><b><h3>Общая стоимость</h3></b></td>
+        <c:set value="${basket.price}" var="basketPrice"/>
+        <td><b><h3>${String.format('%.2f',basketPrice)} руб.</h3></b></td>
     </tr>
 </table>
 <c:url var="Back" value="/seedlings.by/catalog">

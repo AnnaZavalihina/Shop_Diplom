@@ -48,6 +48,8 @@ public class BasketController {
         else{
             BasketItem myBasketItem = bi.get(0);
             myBasketItem.setQuantity(myBasketItem.getQuantity()+1);
+            myBasketItem.setPrice(myBasketItem.getPrice()+item.getUnitPrice());
+
             basketService.saveBasketItem(myBasketItem);
         }
 
@@ -108,14 +110,14 @@ public class BasketController {
             oi.setPrice(basketItem.getPrice());
             oi.setItem(basketItem.getItem());
             oi.setQuantity(basketItem.getQuantity());
+            oi.setOrder(orderByHostId);
+            basketService.saveOrderItem(oi);
 
             Item item = itemService.getItemById(basketItem.getItem().getId());
             item.setStatus(item.getStatus()-basketItem.getQuantity());
             itemService.saveItem(item);
-
-            oi.setOrder(orderByHostId);
-            basketService.saveOrderItem(oi);
         }
+
         basketService.dropAllItems(hostId);
         return "redirect:/seedlings.by/catalog";
     }
@@ -127,10 +129,12 @@ public class BasketController {
 
         BasketItem basketItem= basketService.getItemById(itemId);
         basketItem.setQuantity(basketItem.getQuantity()-1);
+        basketItem.setPrice(basketItem.getPrice()-basketItem.getItem().getUnitPrice());
+
         basketService.saveBasketItem(basketItem);
 
         Basket myBasket = basketService.getBasketById(hostId);
-        myBasket.setPrice(myBasket.getPrice()-basketItem.getPrice());
+        myBasket.setPrice(myBasket.getPrice()-basketItem.getItem().getUnitPrice());
         basketService.saveBasket(myBasket);
         return "redirect:/seedlings.by/basket";
     }
@@ -142,10 +146,11 @@ public class BasketController {
 
         BasketItem basketItem= basketService.getItemById(itemId);
         basketItem.setQuantity(basketItem.getQuantity()+1);
+        basketItem.setPrice(basketItem.getPrice()+basketItem.getItem().getUnitPrice());
         basketService.saveBasketItem(basketItem);
 
         Basket myBasket = basketService.getBasketById(hostId);
-        myBasket.setPrice(myBasket.getPrice()+basketItem.getPrice());
+        myBasket.setPrice(myBasket.getPrice()+basketItem.getItem().getUnitPrice());
         basketService.saveBasket(myBasket);
         return "redirect:/seedlings.by/basket";
     }

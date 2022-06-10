@@ -91,7 +91,7 @@ public class BasketDaoImp implements BasketDao {
         String hql = String.format("from Order O where O.clientId=%1$d", hostId);
         Query query = session.createQuery(hql, Order.class);
         List<Order> orderList = query.getResultList();
-        Order order= orderList.get(0);
+        Order order= orderList.get(orderList.size()-1);
         return order;
     }
 

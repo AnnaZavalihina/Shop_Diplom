@@ -29,7 +29,10 @@
             </c:url>
             <td><img src="${item.item.image}" width="200px" height="200px"></td>
             <td><a onclick="window.location.href = '${ItemInfo}'"><div style="text-align: center">${item.item.name}</div></a> <br>
-                    ${item.price} руб.</td>
+
+                <c:set value="${item.price}" var="itemPrice"/>
+                    ${String.format('%.2f',itemPrice)} руб.</td>
+
             <c:url var="ReduceItem" value="/seedlings.by/reduceQuantity">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
@@ -55,7 +58,6 @@
     </c:forEach><br><br><br>
     <tr>
         <td><b><h3>Общая стоимость</h3></b></td>
-<%--            ${String.format('%.2f',oldPrice)}--%>
         <c:set value="${basket.price}" var="price"/>
         <td><b><h3>${String.format('%.2f',price)} руб.</h3></b></td>
     </tr>
