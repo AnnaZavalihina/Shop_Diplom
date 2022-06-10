@@ -1,3 +1,6 @@
+
+CREATE DATABASE `auf` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+SELECT auf;
 CREATE TABLE `basket_items` (
                                 `id` bigint NOT NULL AUTO_INCREMENT,
                                 `item_id` int NOT NULL,
@@ -95,7 +98,7 @@ CREATE TABLE `subtypes` (
                             UNIQUE KEY `id_UNIQUE` (`id`),
                             KEY `type_idx` (`type_id`),
                             CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 CREATE TABLE `types` (
                          `id` int NOT NULL AUTO_INCREMENT,
@@ -103,4 +106,33 @@ CREATE TABLE `types` (
                          `details` tinytext,
                          PRIMARY KEY (`id`),
                          UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+INSERT INTO `auf`.`types`
+(`id`,`name`,`details`)
+VALUES
+(1,'Плодовые саженцы','САЖЕНЦЫ ПЛОДОВЫХ ДЕРЕВЬЕВ И КУСТАРНИКОВ'),
+(2,'Декоративные растения','ДЕКОРАТИВНЫЕ РАСТЕНИЯ'),
+(3,'Лиственные растения','САЖЕНЦЫ ЛИСТВЕННЫХ РАСТЕНИЙ'),
+(4,'Хвойные растения','САЖЕНЦЫ ХВОЙНЫХ РАСТЕНИЙ');
+
+INSERT INTO `auf`.`subtypes`
+    (`id`, `name`, `title`, `type_id`, `details`)
+VALUES
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>),
+       (<{id: }>,<{name: }>,<{title: }>,<{type_id: }>,<{details: }>);
+
+INSERT INTO `auf`.`info`
+(`id`, `requisites`, `email`, `mailing_address`, `registration_number`, `name`)
+VALUES
+    (1,'ИП Завалихина Анна Сергеевна','info@seedlings.by','220007 г. Минск а\я 202',516928,'Auf');
