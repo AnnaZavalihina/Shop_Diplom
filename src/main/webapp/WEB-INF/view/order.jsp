@@ -52,14 +52,15 @@
     <div style="align-content: center"><tr>
         <th> ИНФОРМАЦИЯ О КЛИЕНТЕ</th></tr>
 
-    <tr>
+    <tr><br>
     <th>
 
-        <div style="color: red">Ваше ФИО <b>как в паспорте</b></div><br> <form:input path="name"/>
+        Ваше ФИО <b>как в паспорте</b><br> <form:input pattern="^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+[ ]*[A-Za-z]*" path="name"/>
             <br><br>
-            E-mail <form:input path="email"/>
+            E-mail <form:input type="email" path="email"/>
             <br><br>
-        Номер телефона <form:input path="telNumber" />
+        Номер телефона в виде XX XXXX XXX<br>
+        <form:input type="tel" minlength="9" pattern="[1-9][0-9\s]{8,}" path="telNumber" /><br>
     </th>
     </tr>
     </div></table>

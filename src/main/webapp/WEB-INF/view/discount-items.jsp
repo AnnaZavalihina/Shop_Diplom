@@ -45,7 +45,7 @@
             </c:if>
             </td>
             <c:url var="Basket" value="/seedlings.by/addBasketItem">
-                <c:param name="item" value="${item.id}"/>
+                <c:param name="itemId" value="${item.id}"/>
             </c:url>
             <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'"><b>Добавить в корзину</b></a></div></td>
         </tr>
