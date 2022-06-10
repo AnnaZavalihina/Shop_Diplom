@@ -27,7 +27,23 @@
             <td><img src="${item.item.image}" width="200px" height="200px"></td>
             <td>${item.item.name} <br>
                     ${item.price} руб.</td>
-            <td>   ${item.quantity}   </td>
+            <c:url var="ReduceItem" value="/seedlings.by/reduceQuantity">
+                <c:param name="itemId" value="${item.id}"/>
+            </c:url>
+
+            <c:url var="IncreaseItem" value="/seedlings.by/increaseQuantity">
+            <c:param name="itemId" value="${item.id}"/>
+        </c:url>
+
+
+            <td><div>
+                <c:if test="${item.quantity>1}">
+                <a onclick="window.location.href = '${ReduceItem}'"><b><h2>-1</h2></b></a>
+                </c:if>
+                    ${item.quantity}
+                <a onclick="window.location.href = '${IncreaseItem}'"><b><h2>+1</h2></b></a>
+            </div>
+            </td>
             <c:url var="DeleteItem" value="/seedlings.by/deleteBasketItem">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
@@ -36,7 +52,9 @@
     </c:forEach><br><br><br>
     <tr>
         <td><b><h3>Общая стоимость</h3></b></td>
-        <td><b><h3>${basket.price} руб.</h3></b></td>
+<%--            ${String.format('%.2f',oldPrice)}--%>
+        <c:set value="${basket.price}" var="price"/>
+        <td><b><h3>${String.format('%.2f',price)} руб.</h3></b></td>
     </tr>
 </table>
 <c:url var="Back" value="/seedlings.by/catalog">

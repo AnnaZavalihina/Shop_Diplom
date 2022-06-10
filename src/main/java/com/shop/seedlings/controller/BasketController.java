@@ -119,4 +119,34 @@ public class BasketController {
         basketService.dropAllItems(hostId);
         return "redirect:/seedlings.by/catalog";
     }
+
+    @RequestMapping("/seedlings.by/reduceQuantity")
+    public String reduceQuantity(Model model, HttpServletRequest request, HttpServletResponse response,@RequestParam("itemId") int itemId) {
+        Cookie[] c = request.getCookies();
+        int hostId = Integer.parseInt(c[0].getValue());
+
+        BasketItem basketItem= basketService.getItemById(itemId);
+        basketItem.setQuantity(basketItem.getQuantity()-1);
+        basketService.saveBasketItem(basketItem);
+
+        Basket myBasket = basketService.getBasketById(hostId);
+        myBasket.setPrice(myBasket.getPrice()-basketItem.getPrice());
+        basketService.saveBasket(myBasket);
+        return "redirect:/seedlings.by/basket";
+    }
+
+    @RequestMapping("/seedlings.by/increaseQuantity")
+    public String increaseQuantity(Model model, HttpServletRequest request, HttpServletResponse response,@RequestParam("itemId") int itemId) {
+        Cookie[] c = request.getCookies();
+        int hostId = Integer.parseInt(c[0].getValue());
+
+        BasketItem basketItem= basketService.getItemById(itemId);
+        basketItem.setQuantity(basketItem.getQuantity()+1);
+        basketService.saveBasketItem(basketItem);
+
+        Basket myBasket = basketService.getBasketById(hostId);
+        myBasket.setPrice(myBasket.getPrice()+basketItem.getPrice());
+        basketService.saveBasket(myBasket);
+        return "redirect:/seedlings.by/basket";
+    }
 }
