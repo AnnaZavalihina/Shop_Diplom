@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Информация о товаре</title>
+    <title>Информация о <c:out value="${item.name}"/></title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -13,7 +13,14 @@
 <table><tr><td>
     <p><img src="${item.image}" alt="${item.name}" width="200px" height="200px" class="leftimg"></p></td>
     <td>
-    <c:out value="${item.details}"/><c:out value="${item.unitPrice}"/>
+    <c:out value="${item.details}"/><br><br>
+<div style="text-align: center">
+    <b>Параметры посадочного материала</b><br>
+        Срок отправки: с 10 марта<br>
+        Количество: 1 шт.<br>
+        Цена: <c:out value="${item.unitPrice}"/> руб.<br>
+</div>
+
 <c:url var="Basket" value="/seedlings.by/addBasketItem">
     <c:param name="itemId" value="${item.id}"/>
 </c:url>
@@ -22,7 +29,7 @@
     <c:param name="typeId" value="${item.subtype.type.id}"/>
 </c:url>
     </td></tr></table>
-<div style="text-align: right"><h3><a onclick="window.location.href = '${Basket}'">В корзину</a></h3></div>
+<div style="text-align: right"><h3><a onclick="window.location.href = '${Basket}'">Добавить в корзину</a></h3></div>
 <a onclick="window.location.href = '${Back}'">Назад к выбору товара</a>
 </body>
 </html>

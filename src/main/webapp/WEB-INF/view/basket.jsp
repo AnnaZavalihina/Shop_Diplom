@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Basket</title>
+    <title>Корзина</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -24,8 +24,11 @@
     <c:forEach var="item" items="${basketItems}">
 
         <tr>
+            <c:url var="ItemInfo" value="/seedlings.by/item">
+                <c:param name="itemId" value="${item.id}"/>
+            </c:url>
             <td><img src="${item.item.image}" width="200px" height="200px"></td>
-            <td>${item.item.name} <br>
+            <td><a onclick="window.location.href = '${ItemInfo}'"><div style="text-align: center">${item.item.name}</div></a> <br>
                     ${item.price} руб.</td>
             <c:url var="ReduceItem" value="/seedlings.by/reduceQuantity">
                 <c:param name="itemId" value="${item.id}"/>

@@ -59,23 +59,36 @@
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
             <td><img src="${item.image}" width="200px" height="200px"></td>
-            <td><a onclick="window.location.href = '${ItemInfo}'">${item.name}</a><br>
-                    ${item.unitPrice} руб.<br>
+        <td><a onclick="window.location.href = '${ItemInfo}'"><div style="text-align: center">${item.name}</div></a><br>
+
+                <c:if test="${item.discount==false}">
+                    <div style="text-align: center">${item.unitPrice} руб.</div>
+                </c:if>
+
+                <c:if test="${item.discount==true}">
+                    <c:set var = "bigPrice" value = "${item.unitPrice/0.8}"/>
+                    <c:set var = "oldPrice" value = "${String.format('%.2f',bigPrice)}"/>
+
+                    <div style="color: gray; text-decoration:line-through;text-align: center">${oldPrice} руб.</div>
+                    <div style="color: red;text-align: center"> <c:out value = "${item.unitPrice}"/> руб.</div>
+                </c:if>
+
+                <br>
             <c:set var = "status" value = "${item.status}"/>
             <c:if test = "${status<=10 and status!=0}">
-                Последние <c:out value = "${salary}"/>!!!
+                <div style="text-align: center;color: darkorange">Последние <c:out value = "${status}"/>!!!</div>
             </c:if>
             <c:if test = "${status==0}">
-                Нет на складе
+                <div style="text-align: center">Нет на складе</div>
             </c:if></td>
             <c:url var="Basket" value="/seedlings.by/addBasketItem">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
-            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'"><b>В корзину</b></a></div></td>
+            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'"><b>Добавить в корзину</b></a></div></td>
         </tr>
     </c:forEach>
 </table>
-<c:out value="${type.details}"/>
+    <div style="text-align: center"><c:out value="${type.details}"/></div>
 </td></tr></table>
 </body>
 </html>
