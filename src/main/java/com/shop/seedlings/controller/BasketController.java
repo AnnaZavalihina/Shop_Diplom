@@ -38,9 +38,18 @@ public class BasketController {
         Cookie[] c = request.getCookies();
         int hostId = Integer.parseInt(c[0].getValue());
 
+        List<BasketItem> bi= basketService.getDoubleItems(itemId,hostId);
         Item item = itemService.getItemById(itemId);
-        BasketItem basketItem = basketService.itemToBasketItem(item, hostId);
-        basketService.saveBasketItem(basketItem);
+
+        if(bi.size()==0){
+            BasketItem basketItem = basketService.itemToBasketItem(item, hostId);
+            basketService.saveBasketItem(basketItem);
+        }
+        else{
+            BasketItem myBasketItem = bi.get(0);
+            myBasketItem.setQuantity(myBasketItem.getQuantity()+1);
+            basketService.saveBasketItem(myBasketItem);
+        }
 
         Basket basket = basketService.getBasketById(hostId);
         basket.setPrice(basket.getPrice() + item.getUnitPrice());
@@ -55,7 +64,7 @@ public class BasketController {
         int hostId = Integer.parseInt(c[0].getValue());
 
         Basket basket = basketService.getBasketById(hostId);
-        basket.setPrice(basket.getPrice() - item.getItem().getUnitPrice());
+        basket.setPrice(basket.getPrice() - item.getItem().getUnitPrice()*item.getQuantity());
         basketService.saveBasket(basket);
 
         basketService.deleteBasketItem(itemId);

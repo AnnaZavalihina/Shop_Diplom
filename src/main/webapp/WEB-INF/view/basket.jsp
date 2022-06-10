@@ -27,6 +27,7 @@
             <td><img src="${item.item.image}" width="200px" height="200px"></td>
             <td>${item.item.name} <br>
                     ${item.price} руб.</td>
+            <td>   ${item.quantity}   </td>
             <c:url var="DeleteItem" value="/seedlings.by/deleteBasketItem">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>

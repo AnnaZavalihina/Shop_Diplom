@@ -21,4 +21,6 @@ public interface BasketService {
     Order getOrderByHostId(int hostId);
     void saveOrder(Order order);
     void saveOrderItem(OrderItem orderItem);
+
+    List<BasketItem> getDoubleItems(int itemId,int hostId);
 }

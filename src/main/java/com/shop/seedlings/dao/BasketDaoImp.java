@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Repository
 public class BasketDaoImp implements BasketDao {
@@ -107,5 +105,14 @@ public class BasketDaoImp implements BasketDao {
     public void saveOrderItem(OrderItem orderItem) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(orderItem);
+    }
+
+    @Override
+    public List<BasketItem> getDoubleItems(int itemId, int hostId) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = String.format("from BasketItem B where B.item=%1$d and B.basket=%2$d", itemId, hostId);
+        Query query = session.createQuery(hql, BasketItem.class);
+        List<BasketItem> basketItemList = query.getResultList();
+        return basketItemList;
     }
 }

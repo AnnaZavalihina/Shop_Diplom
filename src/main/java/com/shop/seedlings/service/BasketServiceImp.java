@@ -93,4 +93,10 @@ basketDao.saveOrder(order);
     public void saveOrderItem(OrderItem orderItem) {
         basketDao.saveOrderItem(orderItem);
     }
+
+    @Override
+    @Transactional
+    public List<BasketItem> getDoubleItems(int itemId, int hostId) {
+        return basketDao.getDoubleItems(itemId,hostId);
+    }
 }
