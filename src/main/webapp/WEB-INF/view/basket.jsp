@@ -76,7 +76,7 @@
 <c:if test="${basketItems.size()==0}">
     <c:url var="Back" value="/seedlings.by/catalog">
     </c:url>
-    <div style="text-align: center"><h3>Вкорзине нет товаров</h3></div>
+    <div style="text-align: center"><h3>В корзине нет товаров</h3></div>
     <div style="font-size: medium"><a onclick="window.location.href = '${Back}'">Назад к выбору товаров</a></div>
 </c:if>
 </body>

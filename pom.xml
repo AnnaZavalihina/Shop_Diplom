@@ -17,8 +17,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-
-    <spring-security-version>5.5.7</spring-security-version>
   </properties>
 
   <dependencies>
@@ -96,13 +94,6 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.25</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
-    <dependency>
-      <groupId>org.flywaydb</groupId>
-      <artifactId>flyway-core</artifactId>
-      <version>8.5.12</version>
     </dependency>
 
 

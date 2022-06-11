@@ -55,7 +55,7 @@
     <tr><br>
     <th>
 
-        Ваше ФИО <b>как в паспорте</b><br> <form:input pattern="^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+[ ]*[A-Za-z]*" path="name"/>
+        Ваше ФИО <b>(в латинской транскрипции)</b><br> <form:input pattern="^[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+[ ]*[A-Za-z]*" path="name"/>
             <br><br>
             E-mail <form:input type="email" path="email"/>
             <br><br>

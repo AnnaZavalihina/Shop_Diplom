@@ -1,45 +1,32 @@
-CREATE DATABASE `auf` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-SELECT auf;
-CREATE TABLE `basket_items` (
-                                `id` bigint NOT NULL AUTO_INCREMENT,
-                                `item_id` int NOT NULL,
-                                `quantity_buy` int NOT NULL,
-                                `price` double NOT NULL,
-                                `basket_id` bigint NOT NULL,
-                                PRIMARY KEY (`id`),
-                                UNIQUE KEY `id_UNIQUE` (`id`),
-                                KEY `item_idx` (`item_id`),
-                                KEY `basket_idx` (`basket_id`),
-                                CONSTRAINT `basket_item` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-                                CONSTRAINT `basket_number` FOREIGN KEY (`basket_id`) REFERENCES `baskets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE DATABASE `seedlings` /*!40100 DEFAULT CHARACTER SET utf8mb4 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+use `seedlings`;
+CREATE TABLE `types` (
+                         `id` int NOT NULL AUTO_INCREMENT,
+                         `name` varchar(45) NOT NULL,
+                         `details` tinytext,
+                         PRIMARY KEY (`id`),
+                         UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `baskets` (
-                           `id` bigint NOT NULL AUTO_INCREMENT,
-                           `date_creation` date NOT NULL,
-                           `price` double NOT NULL DEFAULT '0',
-                           PRIMARY KEY (`id`),
-                           UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `subtypes` (
+                            `id` int NOT NULL AUTO_INCREMENT,
+                            `name` varchar(45) NOT NULL,
+                            `title` tinytext NOT NULL,
+                            `type_id` int NOT NULL,
+                            `details` text,
+                            PRIMARY KEY (`id`),
+                            UNIQUE KEY `id_UNIQUE` (`id`),
+                            KEY `type_idx` (`type_id`),
+                            CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `clients` (
-                           `id` int NOT NULL,
-                           `name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                           `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-                           `tel_number` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-                           PRIMARY KEY (`id`),
-                           UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
-
-CREATE TABLE `info` (
-                        `id` int NOT NULL,
-                        `requisites` varchar(45) DEFAULT NULL,
-                        `email` varchar(45) DEFAULT NULL,
-                        `mailing_address` varchar(45) DEFAULT NULL,
-                        `registration_number` int DEFAULT NULL,
-                        `name` varchar(45) DEFAULT NULL,
-                        PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `pickup_addresses` (
+                                    `id` int NOT NULL AUTO_INCREMENT,
+                                    `address` varchar(60) NOT NULL,
+                                    `working_hours` varchar(45) NOT NULL,
+                                    PRIMARY KEY (`id`),
+                                    UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `items` (
                          `id` int NOT NULL AUTO_INCREMENT,
@@ -54,7 +41,57 @@ CREATE TABLE `items` (
                          UNIQUE KEY `id_UNIQUE` (`id`),
                          KEY `type_idx` (`subtype_id`),
                          CONSTRAINT `type` FOREIGN KEY (`subtype_id`) REFERENCES `subtypes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `info` (
+                        `id` int NOT NULL,
+                        `requisites` varchar(45) DEFAULT NULL,
+                        `email` varchar(45) DEFAULT NULL,
+                        `mailing_address` varchar(45) DEFAULT NULL,
+                        `registration_number` int DEFAULT NULL,
+                        `name` varchar(45) DEFAULT NULL,
+                        PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `clients` (
+                           `id` int NOT NULL,
+                           `name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                           `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+                           `tel_number` varchar(15) COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                           PRIMARY KEY (`id`),
+                           UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `baskets` (
+                           `id` bigint NOT NULL AUTO_INCREMENT,
+                           `date_creation` date NOT NULL,
+                           `price` double NOT NULL DEFAULT '0',
+                           PRIMARY KEY (`id`),
+                           UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `basket_items` (
+                                `id` bigint NOT NULL AUTO_INCREMENT,
+                                `item_id` int NOT NULL,
+                                `quantity_buy` int NOT NULL,
+                                `price` double NOT NULL,
+                                `basket_id` bigint NOT NULL,
+                                PRIMARY KEY (`id`),
+                                UNIQUE KEY `id_UNIQUE` (`id`),
+                                KEY `item_idx` (`item_id`),
+                                KEY `basket_idx` (`basket_id`),
+                                CONSTRAINT `basket_item` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                                CONSTRAINT `basket_number` FOREIGN KEY (`basket_id`) REFERENCES `baskets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `orders` (
+                          `id` bigint NOT NULL AUTO_INCREMENT,
+                          `date` date NOT NULL,
+                          `price` double NOT NULL,
+                          `client_id` int NOT NULL,
+                          PRIMARY KEY (`id`),
+                          UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `order_items` (
                                `id` bigint NOT NULL AUTO_INCREMENT,
@@ -68,91 +105,55 @@ CREATE TABLE `order_items` (
                                KEY `order_number_idx` (`order_id`),
                                CONSTRAINT `order_item` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
                                CONSTRAINT `order_number` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `orders` (
-                          `id` bigint NOT NULL AUTO_INCREMENT,
-                          `date` date NOT NULL,
-                          `price` double NOT NULL,
-                          `client_id` int NOT NULL,
-                          PRIMARY KEY (`id`),
-                          UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-
-CREATE TABLE `pickup_addresses` (
-                                    `id` int NOT NULL AUTO_INCREMENT,
-                                    `address` varchar(60) NOT NULL,
-                                    `working_hours` varchar(45) NOT NULL,
-                                    PRIMARY KEY (`id`),
-                                    UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-
-CREATE TABLE `subtypes` (
-                            `id` int NOT NULL AUTO_INCREMENT,
-                            `name` varchar(45) NOT NULL,
-                            `title` tinytext NOT NULL,
-                            `type_id` int NOT NULL,
-                            `details` text,
-                            PRIMARY KEY (`id`),
-                            UNIQUE KEY `id_UNIQUE` (`id`),
-                            KEY `type_idx` (`type_id`),
-                            CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-
-CREATE TABLE `types` (
-                         `id` int NOT NULL AUTO_INCREMENT,
-                         `name` varchar(45) NOT NULL,
-                         `details` tinytext,
-                         PRIMARY KEY (`id`),
-                         UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-
-INSERT INTO `auf`.`types`
+INSERT INTO `seedlings`.`types`
 (`id`,`name`,`details`)
 VALUES
-(1,'Плодовые саженцы','САЖЕНЦЫ ПЛОДОВЫХ ДЕРЕВЬЕВ И КУСТАРНИКОВ'),
-(2,'Декоративные растения','ДЕКОРАТИВНЫЕ РАСТЕНИЯ'),
-(3,'Лиственные растения','САЖЕНЦЫ ЛИСТВЕННЫХ РАСТЕНИЙ'),
-(4,'Хвойные растения','САЖЕНЦЫ ХВОЙНЫХ РАСТЕНИЙ');
+    (1,'Плодовые саженцы','САЖЕНЦЫ ПЛОДОВЫХ ДЕРЕВЬЕВ И КУСТАРНИКОВ'),
+    (2,'Декоративные растения','ДЕКОРАТИВНЫЕ РАСТЕНИЯ'),
+    (3,'Лиственные растения','САЖЕНЦЫ ЛИСТВЕННЫХ РАСТЕНИЙ'),
+    (4,'Хвойные растения','САЖЕНЦЫ ХВОЙНЫХ РАСТЕНИЙ');
 
-INSERT INTO `auf`.`subtypes`
-    (`id`, `name`, `title`, `type_id`, `details`)
+INSERT INTO `seedlings`.`subtypes`
+(`id`, `name`, `title`, `type_id`, `details`)
 VALUES
-       (1,'Клематисы','КЛЕМАТИСЫ САЖЕНЦЫ',2, 'Каждому, даже начинающему садоводу, известно, что именно вьющиеся растения придают уникальность и неповторимость любому участку. А секрет прост, ведь наличие на участке растений, и особенно обильно и продолжительно цветущих, меняет пропорции и перспективу любого участка, и что немаловажно, позволяет скрыть не самые его красивые места. Нет предела фантазии в использовании клематисов для вертикального озеленения беседок, пергол, подпорных стенок и прочих сооружений. Композиция из клематисов является полноценной составляющей сада, альтернативу которой найти сложно. Клематисы быстро наращивают зеленую массу, закрывая все, что надо спрятать, мало подвержены болезням и морозам, очень просты в уходе и долговечны (при условии правильной посадки), а по великолепию и продолжительности цветения им нет равных среди лиан, растущих в нашей зоне растениеводства. Очень красиво выглядят вертикали, созданные из клематисов контрастных окрасок. Клематисы можно использовать на любой вкус - мелкоцветковые, с цветками колокольчиками, похожими на бабочек, крупноцветковые с цветами -звездами до 20 и более сантиметров в диаметре или махровые клематисы с цветами- шарами. Поэтому недаром клематис называют королем вьющихся растений и без прекрасных, красивоцветущих клематисов нам никак не обойтись.'),
-       (2,'Сирень','СИРЕНИ САЖЕНЦЫ',2, 'Сирень - признанная королева среди цветущих кустарников. В культурной форме известна еще с 16 века. Родиной ее считают Евразию. Сирень - это воспоминание из детства и юности, у кого-то о бабушкином доме в деревне, утопающем весной в ароматных зарослях сирени, у кого-то о первой любви и букете сирени, влажном и ароматном, который он тебе положил на подоконник рано утром, а может о Дне Победы, когда охапками сирени одаривают ветеранов. У каждого свои воспоминания, и поэтому кусты сирени должны быть в каждом палисаднике, как символ преемственности поколений, как символ родового гнезда, да просто как роскошное растение. Поставьте скамью под цветущим кустом сирени и вечером, когда аромат сиреневых гроздей особенно яркий и волнующий, принимайте сеансы аромагии этого растения. С этим запахом вас посетит умиротворение и покой, и уйдут из сердца, хотя - бы на время, печали и заботы.'),
-       (3,'Экзотические','САЖЕНЦЫ ЭКЗОТИЧЕСКИЙ РАСТЕНИЙ',2,''),
-       (4,'Дейция','САЖЕНЦЫ ДЕЙЦИИ',3,''),
-       (5,'Барбарис','САЖЕНЦЫ БАРБАРИСА',3,''),
-       (6,'Чубушник','САЖЕНЦЫ ЧУБУШНИКА',3,''),
-       (7,'Гортензия','САЖЕНЦЫ ГОРТЕНЗИИ',3,''),
-       (8,'Сосна','САЖЕНЦЫ СОСНЫ',4,''),
-       (9,'Туя','САЖЕНЦЫ ТУИ',4,''),
-       (10,'Можжевельник','САЖЕНЦЫ МОЖЖЕВЕЛЬНИКА',4,''),
-       (11,'Яблони','САЖЕНЦЫ ЯБЛОНЬ',1,' Каждый садовод мечтает вырастить сад своей мечты и конечно, в первую очередь, это яблоневый сад, ведь именно яблоки - самые полезные и необходимые фрукты в нашем питании. '),
-       (12,'Груши','САЖЕНЦЫ ГРУШ',1,' Купить саженцы груш совсем просто. Сделайте заказ в интернет - магазине или позвоните нашим операторам и закажите приглянувшиеся сорта, и они будут к Вам доставлены в сезон рассылки плодовых саженцев почтой или курьером. Или Вы сами сможете их забрать в пунктах выдачи заказов после нашего приглашения. Пункты будут работать во всех областных центрах Беларуси. Оплата только по получении посадочного материала, без предоплаты. И мечта о грушевом саде воплотится в реальность. Мы осуществляем доставку в Минск, Гомель, Брест, Могилев, Гродно и Витебск, а также в любой населенный пункт Беларуси!'),
-       (13,'Виноград','САЖЕНЦЫ ВИНОГРАДА',1,''),
-       (14,'Сливы','САЖЕНЦЫ СЛИВЫ',1,'Ну какой - же белорусский сад может быть без слив. Сливовые деревья растут в Беларуси повсеместно и не доставляют много хлопот в содержании, и главное, радуют обильными и регулярными урожаями. Саженцы слив, которые мы предлагаем в этом сезоне, выращены в наших белорусских питомниках и удовлетворят самых требовательных садоводов.');
+    (1,'Клематисы','КЛЕМАТИСЫ САЖЕНЦЫ',2, 'Каждому, даже начинающему садоводу, известно, что именно вьющиеся растения придают уникальность и неповторимость любому участку. А секрет прост, ведь наличие на участке растений, и особенно обильно и продолжительно цветущих, меняет пропорции и перспективу любого участка, и что немаловажно, позволяет скрыть не самые его красивые места. Нет предела фантазии в использовании клематисов для вертикального озеленения беседок, пергол, подпорных стенок и прочих сооружений. Композиция из клематисов является полноценной составляющей сада, альтернативу которой найти сложно. Клематисы быстро наращивают зеленую массу, закрывая все, что надо спрятать, мало подвержены болезням и морозам, очень просты в уходе и долговечны (при условии правильной посадки), а по великолепию и продолжительности цветения им нет равных среди лиан, растущих в нашей зоне растениеводства. Очень красиво выглядят вертикали, созданные из клематисов контрастных окрасок. Клематисы можно использовать на любой вкус - мелкоцветковые, с цветками колокольчиками, похожими на бабочек, крупноцветковые с цветами -звездами до 20 и более сантиметров в диаметре или махровые клематисы с цветами- шарами. Поэтому недаром клематис называют королем вьющихся растений и без прекрасных, красивоцветущих клематисов нам никак не обойтись.'),
+    (2,'Сирень','СИРЕНИ САЖЕНЦЫ',2, 'Сирень - признанная королева среди цветущих кустарников. В культурной форме известна еще с 16 века. Родиной ее считают Евразию. Сирень - это воспоминание из детства и юности, у кого-то о бабушкином доме в деревне, утопающем весной в ароматных зарослях сирени, у кого-то о первой любви и букете сирени, влажном и ароматном, который он тебе положил на подоконник рано утром, а может о Дне Победы, когда охапками сирени одаривают ветеранов. У каждого свои воспоминания, и поэтому кусты сирени должны быть в каждом палисаднике, как символ преемственности поколений, как символ родового гнезда, да просто как роскошное растение. Поставьте скамью под цветущим кустом сирени и вечером, когда аромат сиреневых гроздей особенно яркий и волнующий, принимайте сеансы аромагии этого растения. С этим запахом вас посетит умиротворение и покой, и уйдут из сердца, хотя - бы на время, печали и заботы.'),
+    (3,'Экзотические','САЖЕНЦЫ ЭКЗОТИЧЕСКИЙ РАСТЕНИЙ',2,''),
+    (4,'Дейция','САЖЕНЦЫ ДЕЙЦИИ',3,''),
+    (5,'Барбарис','САЖЕНЦЫ БАРБАРИСА',3,''),
+    (6,'Чубушник','САЖЕНЦЫ ЧУБУШНИКА',3,''),
+    (7,'Гортензия','САЖЕНЦЫ ГОРТЕНЗИИ',3,''),
+    (8,'Сосна','САЖЕНЦЫ СОСНЫ',4,''),
+    (9,'Туя','САЖЕНЦЫ ТУИ',4,''),
+    (10,'Можжевельник','САЖЕНЦЫ МОЖЖЕВЕЛЬНИКА',4,''),
+    (11,'Яблони','САЖЕНЦЫ ЯБЛОНЬ',1,' Каждый садовод мечтает вырастить сад своей мечты и конечно, в первую очередь, это яблоневый сад, ведь именно яблоки - самые полезные и необходимые фрукты в нашем питании. '),
+    (12,'Груши','САЖЕНЦЫ ГРУШ',1,' Купить саженцы груш совсем просто. Сделайте заказ в интернет - магазине или позвоните нашим операторам и закажите приглянувшиеся сорта, и они будут к Вам доставлены в сезон рассылки плодовых саженцев почтой или курьером. Или Вы сами сможете их забрать в пунктах выдачи заказов после нашего приглашения. Пункты будут работать во всех областных центрах Беларуси. Оплата только по получении посадочного материала, без предоплаты. И мечта о грушевом саде воплотится в реальность. Мы осуществляем доставку в Минск, Гомель, Брест, Могилев, Гродно и Витебск, а также в любой населенный пункт Беларуси!'),
+    (13,'Виноград','САЖЕНЦЫ ВИНОГРАДА',1,''),
+    (14,'Сливы','САЖЕНЦЫ СЛИВЫ',1,'Ну какой - же белорусский сад может быть без слив. Сливовые деревья растут в Беларуси повсеместно и не доставляют много хлопот в содержании, и главное, радуют обильными и регулярными урожаями. Саженцы слив, которые мы предлагаем в этом сезоне, выращены в наших белорусских питомниках и удовлетворят самых требовательных садоводов.');
 
-INSERT INTO `auf`.`info`
+INSERT INTO `seedlings`.`info`
 (`id`, `requisites`, `email`, `mailing_address`, `registration_number`, `name`)
 VALUES
     (1,'ИП Завалихина Анна Сергеевна','info@seedlings.by','220007 г. Минск а\я 202',516928,'Seedlings.by');
 
-INSERT INTO `auf`.`pickup_addresses`
+INSERT INTO `seedlings`.`pickup_addresses`
 (`id`, `address`, `working_hours`)
 VALUES
     (1,'ул. Немига, 5','пн-вс 10:00 - 21:00'),
-(2,'ул. Веры Хоружей, 34А', 'пн-вс 10:00 - 21:00'),
-(3,'просп. Машерова, 50','пн-вс 10:00 - 21:00'),
-(4,'пер. Кузьмы Чорного, 9','пн-вс 10:00 - 21:00');
+    (2,'ул. Веры Хоружей, 34А', 'пн-вс 10:00 - 21:00'),
+    (3,'просп. Машерова, 50','пн-вс 10:00 - 21:00'),
+    (4,'пер. Кузьмы Чорного, 9','пн-вс 10:00 - 21:00');
 
-INSERT INTO `auf`.`items`
+INSERT INTO `seedlings`.`items`
 (`id`, `name`, `unit_price`, `status`, `image`, `details`, `subtype_id`, `discount`)
 VALUES
     (1,'КЛЕМАТИС ИННОСЕНТ ГЛАНС',26.44,5,'https://semena.by/tmp/generate_pic/2017_osen/Clematis/InnocenceGlancePBR/InnocenceGlancePBR3.jpg!1000!800!reduce.jpg',' Клематис Инноцент Гланс - махровый сорт клематиса с большими цветами (10 - 15 сантиметров). Цветы - супермахровые (с 40 - 60 лепестками), розового цвета с желтоватыми оттенками. Сказочно красивые махровые цветы появляются в первой волне цветения (в мае - июне) на приростах прошлого года, а во второй волне, на приростах текущего года, могут быть простыми. Поэтому обрезка - слабая (побеги укорачивают до 1-1,5 метров). Клематис предпочитает солнце или полутень.',1,'true'),
     (2,'КЛЕМАТИС ПИИЛУ',22.99,25,'https://semena.by/tmp/generate_pic/2018_osen/klematis/Piilu/1.jpg!390!380!cut.jpg',' Пиилу - невысокая лиана с лиловыми цветами среднего размера. Цветение - в начале и конце лета, предпочтительны солнечные места. Сорт ценится именно за компактность кроны, что позволяет «вмонтировать» растение практически в любую садовую композицию, но надо учитывать, что побеги лианы обрезаются на зиму минимально, а значит надо планировать ее зимнее укрытие. Подходит для выращивания в кадках на террасах и балконах.',1,'true'),
     (3,'КЛЕМАТИС СНОУДРИФТ',25.29,14,'https://semena.by/tmp/generate_pic/2021Vesna/klematis/Snowdrift/1.jpg!390!380!cut.jpg',' Необычный и редчайший сорт клематиса группы Арманда. Это высокая вечнозеленая лиана, которую совсем не надо обрезать. Цветет она с марта по май некрупными (5-6 см) и очень ароматными многочисленными цветами. Этот сорт выдерживает морозы не более 12 градусов, поэтому на улицу высаживать его нет смысла, а вот в оранжерее, зимнем саду, на непромерзающей лоджии ему самое место. Такая редкость в доме — гордость хозяев и услада для взгляда ценителей клематисов. Клематис  арманда — вечнозеленая лиана с мелкими многочисленными цветами с ароматом миндаля, цветение — более месяца.',1,'false'),
-    (4,'КЛЕМАТИС ЧЕЙНДЖ ОФ ХАРТ',19.54,76,'https://semena.by/tmp/generate_pic/2020vesna/KLEMATISNEW/ChangeofHeart/1.jpg!390!380!cut.jpg',' Новый крупноцветковый сорт польской селекции, покоряющий не только суперобильным цветением (заявлено чуть ли не до тысячи цветов на одном взрослом растении) но и необыкновенно милыми круглыми цветами - ромашками (до пятнадцати сантиметров), которые постоянно меняют окраску в процессе старения цветка. Таким образом, на одном растении присутствуют цветы карминно - красных, розово - красных и бледно - розовых оттенков. Все это в массе дает эффект сияния, переливчатости тонов - зрелище просто сказочное. Цветение - однократное с конца мая до середины лета, обрезка - сильная. Этот необыкновенно красивый клематис легко вырастить даже в кашпо, ведь он совсем невысокий, и украсить любую зону отдыха, даже балкон.',1,'true'),
+    (4,'КЛЕМАТИС ЧЕЙНДЖ
+    ОФ ХАРТ',19.54,76,'https://semena.by/tmp/generate_pic/2020vesna/KLEMATISNEW/ChangeofHeart/1.jpg!390!380!cut.jpg',' Новый крупноцветковый сорт польской селекции, покоряющий не только суперобильным цветением (заявлено чуть ли не до тысячи цветов на одном взрослом растении) но и необыкновенно милыми круглыми цветами - ромашками (до пятнадцати сантиметров), которые постоянно меняют окраску в процессе старения цветка. Таким образом, на одном растении присутствуют цветы карминно - красных, розово - красных и бледно - розовых оттенков. Все это в массе дает эффект сияния, переливчатости тонов - зрелище просто сказочное. Цветение - однократное с конца мая до середины лета, обрезка - сильная. Этот необыкновенно красивый клематис легко вырастить даже в кашпо, ведь он совсем невысокий, и украсить любую зону отдыха, даже балкон.',1,'true'),
     (5,'НАБОР 3 РАЗНЫХ КЛЕМАТИСА',50.59,99,'https://semena.by/tmp/generate_pic/dekorativka/5555.jpg!1000!800!reduce.jpg',' Набор из 3 разных сортов клематисов. Выбор сортов доверьте нашему дизайнеру.',1,'true'),
     (6,'НАБОР 2 РАЗНЫХ КЛЕМАТИСОВ',35.64,97,'https://semena.by/tmp/generate_pic/nabori/klematis.jpg!390!380!cut.jpg',' Набор из 2 разных сортов клематисов в контейнерах Р9. Выбор сортов доверьте нашему дизайнеру.',1,'true'),
     (7,'НАБОР 5 РАЗНЫХ КЛЕМАТИСОВ',80.49,99,'https://semena.by/tmp/generate_pic/2017_osen/66663.jpg!390!380!cut.jpg',' Набор клематисов разных сортов  - выбор сортов доверьте нашему дизайнеру.',1,'false'),
