@@ -1,4 +1,4 @@
-CREATE DATABASE `seedlings` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE `seedlings` /*!40100 DEFAULT CHARACTER SET utf8mb4 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 use `seedlings`;
 CREATE TABLE `types` (
                          `id` int NOT NULL AUTO_INCREMENT,
@@ -6,7 +6,7 @@ CREATE TABLE `types` (
                          `details` tinytext,
                          PRIMARY KEY (`id`),
                          UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `subtypes` (
                             `id` int NOT NULL AUTO_INCREMENT,
@@ -18,7 +18,7 @@ CREATE TABLE `subtypes` (
                             UNIQUE KEY `id_UNIQUE` (`id`),
                             KEY `type_idx` (`type_id`),
                             CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `pickup_addresses` (
                                     `id` int NOT NULL AUTO_INCREMENT,
@@ -41,7 +41,7 @@ CREATE TABLE `items` (
                          UNIQUE KEY `id_UNIQUE` (`id`),
                          KEY `type_idx` (`subtype_id`),
                          CONSTRAINT `type` FOREIGN KEY (`subtype_id`) REFERENCES `subtypes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `info` (
                         `id` int NOT NULL,
@@ -57,10 +57,10 @@ CREATE TABLE `clients` (
                            `id` int NOT NULL,
                            `name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
                            `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-                           `tel_number` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+                           `tel_number` varchar(15) COLLATE utf8mb4_0900_ai_ci NOT NULL,
                            PRIMARY KEY (`id`),
                            UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `baskets` (
                            `id` bigint NOT NULL AUTO_INCREMENT,
@@ -68,7 +68,7 @@ CREATE TABLE `baskets` (
                            `price` double NOT NULL DEFAULT '0',
                            PRIMARY KEY (`id`),
                            UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `basket_items` (
                                 `id` bigint NOT NULL AUTO_INCREMENT,

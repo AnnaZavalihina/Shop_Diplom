@@ -10,7 +10,7 @@
   </head>
 <body>
 
-<table style="font-size: large;width: 80%; text-align: center">
+<table style="font-size: large;width: 80%; text-align: center;margin: auto;">
             <tr >
                 <td>
                     <a  href="/seedlings.by/catalog">Каталог</a>

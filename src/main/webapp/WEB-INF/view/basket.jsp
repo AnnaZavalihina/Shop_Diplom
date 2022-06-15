@@ -20,7 +20,7 @@
 <h2 style="text-align: center">КОРЗИНА</h2>
 <br>
 <c:if test="${basketItems.size()!=0}">
-<table style="align-items: center">
+<table style="align-items: center;margin: auto;width: 80%;">
     <c:forEach var="item" items="${basketItems}">
 
         <tr>
@@ -58,9 +58,11 @@
             </c:url>
             <td><a onclick="window.location.href = '${DeleteItem}'">Удалить товар</a></td>
         </tr>
-    </c:forEach><br><br><br>
+    </c:forEach>
+    <tr/>
     <tr>
-        <td><b><h3>Общая стоимость</h3></b></td>
+        <td><br><br>
+            <b><h3>Общая стоимость</h3></b></td>
         <c:set value="${basket.price}" var="price"/>
         <td><b><h3>${String.format('%.2f',price)} руб.</h3></b></td>
     </tr>

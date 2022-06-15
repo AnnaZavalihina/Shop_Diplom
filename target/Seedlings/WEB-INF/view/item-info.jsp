@@ -10,8 +10,8 @@
 <body>
 <jsp:include page="header.jsp" />
 <h2 style="text-align: center">${item.name}</h2>
-<table><tr><td>
-    <p><img src="${item.image}" alt="${item.name}" width="200px" height="200px" class="leftimg"></p></td>
+<table style="margin: auto; width: 90%;"><tr><td>
+    <img src="${item.image}" alt="${item.name}" width="200px" height="200px" class="leftimg"></td>
     <td>
     <c:out value="${item.details}"/><br><br>
 <div style="text-align: center">

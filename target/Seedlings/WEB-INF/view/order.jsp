@@ -19,9 +19,9 @@
 <h2 style="text-align: center">ЗАКАЗ</h2>
 <br>
 
-<table><tr><td style="vertical-align: top">
+<table style="margin: auto;width: 100%;border: black;"><tr><td style="vertical-align: top;width: 50%;">
 
-<table>
+<table style="margin: auto;width: 100%;border: black;">
     <h3 style="text-align: center">Товары</h3>
     <c:forEach var="item" items="${basketItems}">
 
@@ -42,13 +42,13 @@
 <c:url var="Back" value="/seedlings.by/catalog">
 </c:url>
 <br><br>
-<div><a onclick="window.location.href = '${Back}'">Отмена</a></div>
+<a onclick="window.location.href = '${Back}'">Отмена</a>
 <br>
 
-</td><td style="vertical-align: top; text-align: right">
+</td><td style="vertical-align: top; margin: auto;">
 
 <form:form action="/seedlings.by/order" modelAttribute="client">
-<table style="align-self: center">
+<table style="align-self: center;margin: auto;width: 100%;">
     <div style="align-content: center"><tr>
         <th> ИНФОРМАЦИЯ О КЛИЕНТЕ</th></tr>
 
@@ -64,10 +64,11 @@
     </th>
     </tr>
     </div></table>
-<input type="submit" value="Заказать">
+<input type="submit" value="Заказать" style="font-size: large;text-align: center;">
 
 </form:form>
 
 </td></tr></table>
+
 </body>
 </html>

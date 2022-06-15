@@ -20,7 +20,7 @@
 <jsp:include page="header.jsp" />
 <h2 style="text-align: center">АКЦИИ</h2>
 <br>
-<table>
+<table style="width: 80%;align-self: center;margin: auto;">
     <c:forEach var="item" items="${allDiscountItems}">
 
         <tr>

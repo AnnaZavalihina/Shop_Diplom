@@ -11,7 +11,8 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-<table class="main" width="80%"><tr><td style="vertical-align: top">
+<table style="width: 100%;align-self: center;margin: auto;"><tr>
+    <td style="vertical-align: top;width: 25%;">
 <ul>
 <c:forEach var="type" items="${allTypes}">
     <c:url var="Type" value="/seedlings.by/type">
@@ -23,7 +24,7 @@
 <td>
 <h2 style="text-align: center">КАТАЛОГ РАСТЕНИЙ</h2>
 <br>
-<table>
+<table style="width: 100%;align-self: center;margin: auto;">
     <c:forEach var="item" items="${allItems}">
 
         <tr>
