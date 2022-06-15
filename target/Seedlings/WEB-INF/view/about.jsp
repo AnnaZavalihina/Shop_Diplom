@@ -17,7 +17,8 @@
 <body>
 <jsp:include page="header.jsp" />
 
-<h1 style="text-align: center;">Интернет-магазин семена и саженцы<div style="font-weight: bold">Seedlings.by</div></h1>
+<h1 style="text-align: center;">Интернет-магазин семена и саженцы
+    <div style="font-weight: bold">Seedlings.by</div></h1>
 <div style="text-align: center;font-family: verdana, geneva;color: #003300;font-size: x-large;">Лучший посадочный материал в любой уголок страны!</div>
 <div style="font-family: verdana, geneva;font-size: medium;">Мы реализуем семена и саженцы сортовых растений по Республике Беларусь почтой. На нашем сайте Вы можете найти и заказать в любой населенный пункт страны - семена цветов и овощей, луковицы и корневища цветов, саженцы кустарников и плодовых растений из ведущих питомников Республики Беларусь, Польши, Бельгии, Нидерландов.</div>
 <h1 style="text-align: center;">Наши преимущества</h1>
