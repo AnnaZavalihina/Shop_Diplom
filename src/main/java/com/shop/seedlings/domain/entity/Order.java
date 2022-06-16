@@ -18,11 +18,29 @@ public class Order {
     private double price;
     @Column(name = "client_id")
     private int clientId;
+    @Column(name = "status")
+    private String status;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     private List<OrderItem> orderItems;
 
     public Order() {
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Order(Date date, double price, int clientId, String status, List<OrderItem> orderItems) {
+        this.date = date;
+        this.price = price;
+        this.clientId = clientId;
+        this.status = status;
+        this.orderItems = orderItems;
     }
 
     @Override
@@ -38,12 +56,6 @@ public class Order {
         return Objects.hash(id, date, price, clientId, orderItems);
     }
 
-    public Order(Date date, double price, int clientId, List<OrderItem> orderItems) {
-        this.date = date;
-        this.price = price;
-        this.clientId = clientId;
-        this.orderItems = orderItems;
-    }
 
     public int getClientId() {
         return clientId;

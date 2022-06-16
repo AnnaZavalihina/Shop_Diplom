@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=cp1251"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <!doctype html>
@@ -13,19 +13,22 @@
 <table style="font-size: large;width: 80%; text-align: center;margin: auto;">
             <tr >
                 <td>
-                    <a  href="/seedlings.by/catalog">Каталог</a>
+                    <a  href="/seedlings.by/catalog">РљР°С‚Р°Р»РѕРі</a>
                 </td>
                 <td >
-                    <a  href="/seedlings.by/delivery">Доставка</a>
+                    <a  href="/seedlings.by/delivery">Р”РѕСЃС‚Р°РІРєР°</a>
                 </td>
                 <td >
-                    <a href="/seedlings.by/about">О нас</a>
-                </td>
-                <td  style="color: darkorange;">
-                    <a href="/seedlings.by/discount">Акции</a>
+                    <a href="/seedlings.by/about">Рћ РЅР°СЃ</a>
                 </td>
                 <td>
-                    <a href="/seedlings.by/basket">Корзина</a>
+                    <a href="/seedlings.by/discount">РђРєС†РёРё</a>
+                </td>
+                <td>
+                    <a href="/seedlings.by/listOrders">Р—Р°РєР°Р·С‹</a>
+                </td>
+                <td>
+                    <a href="/seedlings.by/basket">РљРѕСЂР·РёРЅР°</a>
                 </td>
             </tr>
 </table>

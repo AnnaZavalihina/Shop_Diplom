@@ -128,7 +128,7 @@ public class BasketController {
 
         double price = basketService.getBasketById(hostId).getPrice();
 
-        Order order = new Order(new java.sql.Date(System.currentTimeMillis()),price,hostId,null);
+        Order order = new Order(new java.sql.Date(System.currentTimeMillis()),price,hostId,"false",null);
         basketService.saveOrder(order);
         Order orderByHostId = basketService.getOrderByHostId(hostId);
 

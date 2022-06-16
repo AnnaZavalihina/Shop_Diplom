@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="dataSource">
+<dataSource name="seedlings@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.32">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
@@ -1319,9 +1319,10 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="358" parent="293" name="status">
+    <column id="358" parent="293" name="finished">
       <DataType>varchar(5)|0s</DataType>
       <DefaultExpression>&apos;false&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <index id="359" parent="293" name="id_UNIQUE">
