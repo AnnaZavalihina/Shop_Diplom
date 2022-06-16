@@ -1,14 +1,16 @@
 package com.shop.seedlings.controller;
 
-import com.shop.seedlings.domain.entity.Order;
-import com.shop.seedlings.service.BasketService;
+import com.shop.seedlings.domain.entity.*;
+import com.shop.seedlings.service.ItemService;
 import com.shop.seedlings.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
@@ -18,6 +20,8 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private ItemService itemService;
 
     @RequestMapping("/seedlings.by/listOrders")
     public String showAllOrders(Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -49,5 +53,43 @@ public class AdminController {
         order.setStatus("true");
         orderService.saveOrder(order);
         return "redirect:/seedlings.by/listOrders";
+    }
+
+    @RequestMapping("/seedlings.by/newItem")
+    public String newItem(Model model, HttpServletRequest request, HttpServletResponse response) {
+        Item item = new Item();
+        model.addAttribute("item", item);
+        List<Subtype> listSubtypes = itemService.getSubtypes();
+        model.addAttribute("listSubtypes", listSubtypes);
+        return "new-item";
+    }
+
+    @RequestMapping("/seedlings.by/addItem")
+    public String addItem(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("item") Item item) {
+        Subtype s=itemService.getSubtypeById(item.getSubtype().getId());
+        item.setSubtype(s);
+        itemService.saveItem(item);
+        return "redirect:/seedlings.by/catalog";
+    }
+
+    @RequestMapping("/seedlings.by/deleteItem")
+    public String deleteItem(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("itemId") int itemId) {
+        itemService.deleteItem(itemId);
+        return "redirect:/seedlings.by/catalog";
+    }
+
+    @RequestMapping("/seedlings.by/editItem")
+    public String editStatus(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("item") Item item) {
+        Subtype s=itemService.getSubtypeById(item.getSubtype().getId());
+        item.setSubtype(s);
+        itemService.saveItem(item);
+        return "redirect:/seedlings.by/catalog";
+    }
+    @RequestMapping("/seedlings.by/newStatusItem")
+    public String addStatusItem(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("item") Item item) {
+        Subtype s=itemService.getSubtypeById(item.getSubtype().getId());
+        item.setSubtype(s);
+        itemService.saveItem(item);
+        return "redirect:/seedlings.by/catalog";
     }
 }

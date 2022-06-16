@@ -59,10 +59,8 @@ public class ItemDaoImp implements ItemDao {
     @Override
     public void deleteItem(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Item item = session.load(Item.class, id);
-        if (item != null) {
-            session.delete(item);
-        }
+        int result = session.createQuery("delete Item where id = :id").
+                setString("id", String.valueOf(id)).executeUpdate();
     }
 
     @Override
