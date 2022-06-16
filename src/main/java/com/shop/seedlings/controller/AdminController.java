@@ -78,18 +78,18 @@ public class AdminController {
         return "redirect:/seedlings.by/catalog";
     }
 
-    @RequestMapping("/seedlings.by/editItem")
-    public String editStatus(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("item") Item item) {
-        Subtype s=itemService.getSubtypeById(item.getSubtype().getId());
-        item.setSubtype(s);
-        itemService.saveItem(item);
-        return "redirect:/seedlings.by/catalog";
-    }
-    @RequestMapping("/seedlings.by/newStatusItem")
-    public String addStatusItem(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("item") Item item) {
-        Subtype s=itemService.getSubtypeById(item.getSubtype().getId());
-        item.setSubtype(s);
-        itemService.saveItem(item);
-        return "redirect:/seedlings.by/catalog";
-    }
+//    @RequestMapping("/seedlings.by/editItem")
+//    public String editStatus(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("item") Item item) {
+//        Subtype s=itemService.getSubtypeById(item.getSubtype().getId());
+//        item.setSubtype(s);
+//        itemService.saveItem(item);
+//        return "redirect:/seedlings.by/catalog";
+//    }
+//    @RequestMapping("/seedlings.by/newStatusItem")
+//    public String addStatusItem(Model model, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("item") Item item) {
+//        Subtype s=itemService.getSubtypeById(item.getSubtype().getId());
+//        item.setSubtype(s);
+//        itemService.saveItem(item);
+//        return "redirect:/seedlings.by/catalog";
+//    }
 }

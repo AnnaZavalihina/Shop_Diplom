@@ -27,6 +27,7 @@
 <br>
     <c:url var="New" value="/seedlings.by/newItem"/>
     <a onclick="window.location.href = '${New}'"><b>Добавить товар</b></a>
+    <br>  <br>
 
 <table style="width: 100%;align-self: center;margin: auto;">
     <c:forEach var="item" items="${allItems}">
