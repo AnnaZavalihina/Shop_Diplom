@@ -41,9 +41,7 @@ public class ItemController {
     }
     @RequestMapping("/seedlings.by/catalog")
     public String showAllItems(Model model,HttpServletRequest request) {
-        Cookie [] c=request.getCookies();
-        String i=c[0].getValue();
-        model.addAttribute("i", i);
+
         List<Item> allItems = itemService.getAllItems();
         model.addAttribute("allItems", allItems);
         List<Type> allTypes = itemService.getAllTypes();
