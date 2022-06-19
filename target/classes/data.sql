@@ -89,9 +89,10 @@ CREATE TABLE `orders` (
                           `date` date NOT NULL,
                           `price` double NOT NULL,
                           `client_id` int NOT NULL,
+                          `status` varchar(5) DEFAULT 'false',
                           PRIMARY KEY (`id`),
                           UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `order_items` (
                                `id` bigint NOT NULL AUTO_INCREMENT,

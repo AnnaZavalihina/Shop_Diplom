@@ -5,7 +5,8 @@
   Time: 11:45
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <!doctype html>
@@ -51,6 +52,10 @@
 
 <h2 style="text-align: center"><c:out value="${type.name}"/></h2>
 <br>
+    <c:url var="New" value="/seedlings.by/newItem"/>
+    <a onclick="window.location.href = '${New}'"><b>Добавить товар</b></a>
+    <br>  <br>
+
 <table style="align-self: center;margin: auto;width: 100%;">
 
     <c:forEach var="item" items="${allTypeItems}">
@@ -59,6 +64,9 @@
             <c:url var="ItemInfo" value="/seedlings.by/item">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
+                <c:url var="Delete" value="/seedlings.by/deleteItem">
+                    <c:param name="itemId" value="${item.id}"/>
+                </c:url>
             <td><img src="${item.image}" width="200px" height="200px"></td>
         <td><a onclick="window.location.href = '${ItemInfo}'"><div style="text-align: center">${item.name}</div></a><br>
 
@@ -85,7 +93,10 @@
             <c:url var="Basket" value="/seedlings.by/addBasketItem">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
-            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'"><b>Добавить в корзину</b></a></div></td>
+            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'"><b>Добавить в корзину</b></a>
+                <br>
+                <a onclick="window.location.href = '${Delete}'"><b>Удалить товар</b></a>
+            </div></td>
         </tr>
     </c:forEach>
 </table>

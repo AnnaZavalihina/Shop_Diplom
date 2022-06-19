@@ -1,5 +1,6 @@
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <!doctype html>
@@ -24,11 +25,18 @@
 <td>
 <h2 style="text-align: center">КАТАЛОГ РАСТЕНИЙ</h2>
 <br>
+    <c:url var="New" value="/seedlings.by/newItem"/>
+    <a onclick="window.location.href = '${New}'"><b>Добавить товар</b></a>
+    <br>  <br>
+
 <table style="width: 100%;align-self: center;margin: auto;">
     <c:forEach var="item" items="${allItems}">
 
         <tr>
             <c:url var="ItemInfo" value="/seedlings.by/item">
+                <c:param name="itemId" value="${item.id}"/>
+            </c:url>
+            <c:url var="Delete" value="/seedlings.by/deleteItem">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
             <td><img src="${item.image}" width="200px" height="200px"></td>
@@ -56,7 +64,10 @@
             <c:url var="Basket" value="/seedlings.by/addBasketItem">
                 <c:param name="itemId" value="${item.id}"/>
             </c:url>
-            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'"><b>Добавить в корзину</b></a></div></td>
+            <td><div style="text-align: center"><a onclick="window.location.href = '${Basket}'"><b>Добавить в корзину</b></a>
+            <br>
+                <a onclick="window.location.href = '${Delete}'"><b>Удалить товар</b></a>
+            </div></td>
 
         </tr>
     </c:forEach>
