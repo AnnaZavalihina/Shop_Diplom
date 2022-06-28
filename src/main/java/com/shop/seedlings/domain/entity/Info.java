@@ -27,7 +27,9 @@ public class Info {
         this.mailingAddress = mailingAddress;
         this.registrationNumber = registrationNumber;
     }
-    public Info(){}
+
+    public Info() {
+    }
 
     @Override
     public boolean equals(Object o) {

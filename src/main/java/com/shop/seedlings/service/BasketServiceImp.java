@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class BasketServiceImp implements BasketService{
+public class BasketServiceImp implements BasketService {
     @Autowired
     private BasketDao basketDao;
 
@@ -48,7 +48,7 @@ public class BasketServiceImp implements BasketService{
     @Override
     @Transactional
     public BasketItem itemToBasketItem(Item item, int basketId) {
-        return basketDao.itemToBasketItem(item,basketId);
+        return basketDao.itemToBasketItem(item, basketId);
     }
 
 
@@ -85,7 +85,7 @@ public class BasketServiceImp implements BasketService{
     @Override
     @Transactional
     public void saveOrder(Order order) {
-basketDao.saveOrder(order);
+        basketDao.saveOrder(order);
     }
 
     @Override
@@ -97,6 +97,6 @@ basketDao.saveOrder(order);
     @Override
     @Transactional
     public List<BasketItem> getDoubleItems(int itemId, int hostId) {
-        return basketDao.getDoubleItems(itemId,hostId);
+        return basketDao.getDoubleItems(itemId, hostId);
     }
 }

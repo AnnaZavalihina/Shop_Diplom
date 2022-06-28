@@ -13,7 +13,6 @@ import com.shop.seedlings.domain.entity.Item;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
@@ -26,30 +25,31 @@ public class ItemController {
     private BasketService basketService;
 
     @RequestMapping("/seedlings.by")
-    public String firstCatalog(Model model, HttpServletResponse response, HttpServletRequest request) {
-    String newId = Integer.toString(basketService.getAllBaskets().size()+1);
-    Basket b=new Basket(new java.sql.Date(System.currentTimeMillis()),0,null);
+    public String firstCatalog(Model model, HttpServletResponse response) {
+
+        String newId = Integer.toString(basketService.getAllBaskets().size() + 1);
+        Basket b = new Basket(new java.sql.Date(System.currentTimeMillis()), 0, null);
         basketService.saveBasket(b);
-    Cookie cookie = new Cookie("i",newId);
-    cookie.setMaxAge(24*60*60);
-    response.addCookie(cookie);
+        Cookie cookie = new Cookie("i", newId);
+        cookie.setMaxAge(24 * 60 * 60);
+        response.addCookie(cookie);
         List<Item> allItems = itemService.getAllItems();
         model.addAttribute("allItems", allItems);
         List<Type> allTypes = itemService.getAllTypes();
         model.addAttribute("allTypes", allTypes);
         return "catalog-items";
     }
+
     @RequestMapping("/seedlings.by/catalog")
-    public String showAllItems(Model model,HttpServletRequest request) {
-        Cookie [] c=request.getCookies();
-        String i=c[0].getValue();
-        model.addAttribute("i", i);
+    public String showAllItems(Model model) {
+
         List<Item> allItems = itemService.getAllItems();
         model.addAttribute("allItems", allItems);
         List<Type> allTypes = itemService.getAllTypes();
         model.addAttribute("allTypes", allTypes);
         return "catalog-items";
     }
+
     @RequestMapping("/seedlings.by/type")
     public String showTypeItems(Model model, @RequestParam("typeId") int typeId) {
 
@@ -85,6 +85,7 @@ public class ItemController {
         model.addAttribute("subtype", subtype);
         return "subtypes-items";
     }
+
     @RequestMapping("/seedlings.by/item")
     public String showItem(Model model, @RequestParam("itemId") int id) {
 

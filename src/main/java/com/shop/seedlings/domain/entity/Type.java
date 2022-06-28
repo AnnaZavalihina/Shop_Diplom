@@ -16,7 +16,7 @@ public class Type {
     @Column(name = "details")
     private String details;
 
-    @OneToMany(mappedBy = "type",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
     private List<Subtype> subtypes;
 
     public Type() {

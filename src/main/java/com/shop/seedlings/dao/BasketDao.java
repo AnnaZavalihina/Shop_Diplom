@@ -26,9 +26,10 @@ public interface BasketDao {
     void dropAllItems(int basketId);
 
     Order getOrderByHostId(int hostId);
+
     void saveOrder(Order order);
 
     void saveOrderItem(OrderItem orderItem);
 
-    List<BasketItem> getDoubleItems(int itemId,int hostId);
+    List<BasketItem> getDoubleItems(int itemId, int hostId);
 }

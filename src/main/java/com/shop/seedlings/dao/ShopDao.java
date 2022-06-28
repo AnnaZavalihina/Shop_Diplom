@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface ShopDao {
     Info getInfo();
+
     List<PickupAddress> getAllPickupAddresses();
 }

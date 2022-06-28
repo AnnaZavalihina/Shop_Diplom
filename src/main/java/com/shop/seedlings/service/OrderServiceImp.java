@@ -9,21 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class OrderServiceImp implements OrderService{
+public class OrderServiceImp implements OrderService {
     @Autowired
     private OrderDao orderDao;
-
-    @Override
-    @Transactional
-    public List<Order> getAllOrders() {
-        return orderDao.getAllOrders();
-    }
-
-    @Override
-    @Transactional
-    public List<Order> getAllMadeOrders(String made) {
-        return orderDao.getAllMadeOrders(made);
-    }
 
     @Override
     @Transactional

@@ -32,12 +32,6 @@ public class ItemServiceImp implements ItemService {
 
     @Override
     @Transactional
-    public void deleteItem(int id) {
-        itemDao.deleteItem(id);
-    }
-
-    @Override
-    @Transactional
     public List<Item> getAllDiscountItems() {
         return itemDao.getAllDiscountItems();
     }
@@ -52,12 +46,6 @@ public class ItemServiceImp implements ItemService {
     @Transactional
     public List<Subtype> getAllSubtypes(int typeId) {
         return itemDao.getAllSubtypes(typeId);
-    }
-
-    @Override
-    @Transactional
-    public List<Subtype> getSubtypes() {
-        return itemDao.getSubtypes();
     }
 
     @Override

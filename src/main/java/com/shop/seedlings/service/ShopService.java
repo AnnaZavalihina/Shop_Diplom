@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface ShopService {
     Info getInfo();
+
     List<PickupAddress> getAllPickupAddresses();
 }

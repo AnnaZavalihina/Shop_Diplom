@@ -31,7 +31,9 @@ public class PickupAddress {
     public PickupAddress(String address) {
         this.address = address;
     }
-    public PickupAddress(){}
+
+    public PickupAddress() {
+    }
 
     @Override
     public boolean equals(Object o) {

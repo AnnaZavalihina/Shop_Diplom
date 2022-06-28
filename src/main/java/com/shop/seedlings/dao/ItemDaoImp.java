@@ -20,15 +20,15 @@ public class ItemDaoImp implements ItemDao {
     @Override
     public Item getItemById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Item item = session.get(Item.class, id);
-        return item;
+        return session.get(Item.class, id);
     }
 
     @Override
     public List<Item> getAllItems() {
         Session session = sessionFactory.getCurrentSession();
         Query<Item> query = session.createQuery("from Item", Item.class);
-        List<Item> allItems = query.getResultList();
+        List<Item> allItems;
+        allItems = query.getResultList();
         return allItems;
     }
 
@@ -37,8 +37,7 @@ public class ItemDaoImp implements ItemDao {
         Session session = sessionFactory.getCurrentSession();
         String hql = String.format("FROM Item as I WHERE I.subtype = %1$d ORDER BY I.name ASC", subtypeId);
         Query<Item> query = session.createQuery(hql, Item.class);
-        List<Item> allSubtypeItems = query.getResultList();
-        return allSubtypeItems;
+        return query.getResultList();
     }
 
     @Override
@@ -46,8 +45,7 @@ public class ItemDaoImp implements ItemDao {
         Session session = sessionFactory.getCurrentSession();
         String hql = String.format("FROM Item as I WHERE I.subtype.type=%1$d ORDER BY I.name ASC", typeId);
         Query<Item> query = session.createQuery(hql, Item.class);
-        List<Item> allTypeItems = query.getResultList();
-        return allTypeItems;
+        return query.getResultList();
     }
 
     @Override
@@ -56,35 +54,19 @@ public class ItemDaoImp implements ItemDao {
         session.saveOrUpdate(item);
     }
 
-    @Override
-    public void deleteItem(int id) {
-        Session session = sessionFactory.getCurrentSession();
-        int result = session.createQuery("delete Item where id = :id").
-                setString("id", String.valueOf(id)).executeUpdate();
-    }
 
     @Override
     public List<Item> getAllDiscountItems() {
         Session session = sessionFactory.getCurrentSession();
         Query<Item> query = session.createQuery("FROM Item I WHERE I.discount = 'true'", Item.class);
-        List<Item> allDiscountItems = query.getResultList();
-        return allDiscountItems;
-    }
-
-    @Override
-    public List<Subtype> getSubtypes() {
-        Session session = sessionFactory.getCurrentSession();
-        Query<Subtype> query = session.createQuery("FROM Subtype", Subtype.class);
-        List<Subtype> allSubtypes = query.getResultList();
-        return allSubtypes;
+        return query.getResultList();
     }
 
     @Override
     public List<Type> getAllTypes() {
         Session session = sessionFactory.getCurrentSession();
         Query<Type> query = session.createQuery("FROM Type", Type.class);
-        List<Type> allTypes = query.getResultList();
-        return allTypes;
+        return query.getResultList();
     }
 
     @Override
@@ -92,21 +74,18 @@ public class ItemDaoImp implements ItemDao {
         Session session = sessionFactory.getCurrentSession();
         String hql = String.format("FROM Subtype as S WHERE S.type=%1$d ORDER BY S.name ASC", typeId);
         Query<Subtype> query = session.createQuery(hql, Subtype.class);
-        List<Subtype> allSubtypes = query.getResultList();
-        return allSubtypes;
+        return query.getResultList();
     }
 
     @Override
     public Type getTypeById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Type type = session.get(Type.class, id);
-        return type;
+        return session.get(Type.class, id);
     }
 
     @Override
     public Subtype getSubtypeById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Subtype subtype = session.get(Subtype.class, id);
-        return subtype;
+        return session.get(Subtype.class, id);
     }
 }
